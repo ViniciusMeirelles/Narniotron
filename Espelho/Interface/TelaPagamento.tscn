@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=2]
@@ -34,6 +34,159 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "pagar_to_aprovado"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pagar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pagar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PagamentoAprovado:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PagamentoAprovado:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "pagar_to_recusado"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pagar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pagar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PagamentoRecusado:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PagamentoRecusado:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "recusado_to_pagar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pagar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pagar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PagamentoRecusado:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PagamentoRecusado:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -169,7 +322,7 @@ text = " Finalizar "
 
 [node name="Pagar" type="CenterContainer" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0.00424194 )
+modulate = Color( 1, 1, 1, 0.4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -206,8 +359,106 @@ margin_bottom = 28.0
 custom_fonts/font = ExtResource( 2 )
 text = " Pagar "
 
+[node name="PagamentoAprovado" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PagamentoAprovado"]
+margin_left = 405.0
+margin_top = 304.0
+margin_right = 674.0
+margin_bottom = 415.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="PagamentoAprovado/VBoxContainer"]
+margin_right = 269.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Compra aprovada!"
+align = 1
+
+[node name="Botoes" type="CenterContainer" parent="PagamentoAprovado/VBoxContainer"]
+margin_top = 83.0
+margin_right = 269.0
+margin_bottom = 111.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PagamentoAprovado/VBoxContainer/Botoes"]
+margin_left = 113.0
+margin_right = 155.0
+margin_bottom = 28.0
+
+[node name="BotaoSair" type="Button" parent="PagamentoAprovado/VBoxContainer/Botoes/HBoxContainer"]
+margin_right = 42.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = " Sair "
+
+[node name="PagamentoRecusado" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PagamentoRecusado"]
+margin_left = 364.0
+margin_top = 278.0
+margin_right = 716.0
+margin_bottom = 441.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="PagamentoRecusado/VBoxContainer"]
+margin_right = 352.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Pagamento recusado  :("
+align = 1
+
+[node name="Label" type="Label" parent="PagamentoRecusado/VBoxContainer"]
+margin_top = 83.0
+margin_right = 352.0
+margin_bottom = 105.0
+custom_fonts/font = ExtResource( 2 )
+text = "Tentar novamente?"
+align = 1
+
+[node name="Botoes" type="CenterContainer" parent="PagamentoRecusado/VBoxContainer"]
+margin_top = 135.0
+margin_right = 352.0
+margin_bottom = 163.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PagamentoRecusado/VBoxContainer/Botoes"]
+margin_left = 119.0
+margin_right = 232.0
+margin_bottom = 28.0
+custom_constants/separation = 30
+
+[node name="BotaoTentarNovamente" type="Button" parent="PagamentoRecusado/VBoxContainer/Botoes/HBoxContainer"]
+margin_right = 41.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = " Sim "
+
+[node name="BotaoCancelar" type="Button" parent="PagamentoRecusado/VBoxContainer/Botoes/HBoxContainer"]
+margin_left = 71.0
+margin_right = 113.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = " Não "
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/iniciar = SubResource( 4 )
+anims/pagar_to_aprovado = SubResource( 6 )
+anims/pagar_to_recusado = SubResource( 7 )
+anims/recusado_to_pagar = SubResource( 8 )
 anims/resumo_to_pagar = SubResource( 5 )
 [connection signal="button_up" from="Resumo/VBoxContainer/Botoes/BotaoFinalizar" to="." method="_on_BotaoFinalizar_button_up"]
 [connection signal="button_up" from="Pagar/VBoxContainer/Botoes/HBoxContainer/BotaoPagar" to="." method="_on_BotaoPagar_button_up"]
+[connection signal="button_up" from="PagamentoAprovado/VBoxContainer/Botoes/HBoxContainer/BotaoSair" to="." method="_on_BotaoSair_button_up"]
+[connection signal="button_up" from="PagamentoRecusado/VBoxContainer/Botoes/HBoxContainer/BotaoTentarNovamente" to="." method="_on_BotaoTentarNovamente_button_up"]
+[connection signal="button_up" from="PagamentoRecusado/VBoxContainer/Botoes/HBoxContainer/BotaoCancelar" to="." method="_on_BotaoSair_button_up"]
