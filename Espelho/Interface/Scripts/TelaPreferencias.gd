@@ -20,7 +20,7 @@ func ativar(cores:Array, marcas:Array, estilos:Array):
 	# Estabelece preferencias
 	# CORES
 	for cor in get_node("Preferencias/VBoxContainer/HBoxContainer/Cores").\
-	                                                             get_children():
+																 get_children():
 		if cor.name=="Label": # Ignora o titulo da sessao
 			continue
 		var nome_cor = cor.get_node("Label").text
@@ -33,7 +33,7 @@ func ativar(cores:Array, marcas:Array, estilos:Array):
 	
 	# MARCAS
 	for marca in get_node("Preferencias/VBoxContainer/HBoxContainer/Marcas").\
-	                                                             get_children():
+																 get_children():
 		if marca.name=="Label": # Ignora o titulo da sessao
 			continue
 		var nome_marca = marca.get_node("Label").text
@@ -46,7 +46,7 @@ func ativar(cores:Array, marcas:Array, estilos:Array):
 	
 	# ESTILOS
 	for estilo in get_node("Preferencias/VBoxContainer/HBoxContainer/Estilos").\
-	                                                             get_children():
+																 get_children():
 		if estilo.name=="Label": # Ignora o titulo da sessao
 			continue
 		var nome_estilo = estilo.get_node("Label").text
@@ -65,21 +65,21 @@ func _on_BotaoEscolher_button_up():
 	
 	# CORES
 	for cor in get_node("Preferencias/VBoxContainer/HBoxContainer/Cores").\
-	                                                             get_children():
+																 get_children():
 		if cor.name!="Label": # Ignora o titulo da sessao
 			if cor.get_node("CheckBox").pressed:
 				cores.push_back(cor.get_node("Label").text)
 	
 	# MARCAS
 	for marca in get_node("Preferencias/VBoxContainer/HBoxContainer/Marcas").\
-	                                                             get_children():
+																 get_children():
 		if marca.name!="Label": # Ignora o titulo da sessao
 			if marca.get_node("CheckBox").pressed:
 				marcas.push_back(marca.get_node("Label").text)
 	
 	# ESTILOS
 	for estilo in get_node("Preferencias/VBoxContainer/HBoxContainer/Estilos").\
-	                                                             get_children():
+																 get_children():
 		if estilo.name!="Label": # Ignora o titulo da sessao
 			if estilo.get_node("CheckBox").pressed:
 				estilos.push_back(estilo.get_node("Label").text)
