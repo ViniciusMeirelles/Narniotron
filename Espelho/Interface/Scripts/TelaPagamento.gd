@@ -4,9 +4,13 @@ onready var espelho = get_parent().get_parent()
 
 
 func _ready():
-	self.hide()
+	get_node("Resumo").show()
+	get_node("Pagar").hide()
+	get_node("PagamentoAprovado").hide()
+	get_node("PagamentoRecusado").hide()
 
 
+# Ativar resumo da compra
 func ativar():
 	get_node("AnimationPlayer").play("iniciar")
 	adicionar_itens()
@@ -44,10 +48,27 @@ func adicionar_itens():
 	
 
 
+# Ir para tela de pagamento
 func _on_BotaoFinalizar_button_up():
 	get_node("AnimationPlayer").play("resumo_to_pagar")
 
 
+# Realizar pagamento
 func _on_BotaoPagar_button_up():
 	pass # Replace with function body.
-#	espelho.realizarPagamento()
+#	var pagamento_aprovado = espelho.realizarPagamento()
+#	if pagamento_aprovado:
+#		get_node("AnimationPlayer").play("pagar_to_aprovado")
+#	else:
+#		get_node("AnimationPlayer").play("pagar_to_recusado")
+
+
+# Pagamento aprovado ou recusado, sair
+func _on_BotaoSair_button_up():
+	pass # Replace with function body.
+#	espelho.logout()
+
+
+# Pagamento recusado, tentar novamente
+func _on_BotaoTentarNovamente_button_up():
+	get_node("AnimationPlayer").play("recusado_to_pagar")
