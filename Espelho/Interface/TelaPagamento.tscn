@@ -1,0 +1,213 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Espelho/Interface/Scripts/TelaPagamento.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "resumo_to_pagar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Resumo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pagar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Resumo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pagar:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="TelaPagamento" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.298039, 0.298039, 0.298039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resumo" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Resumo"]
+margin_left = 397.0
+margin_top = 278.0
+margin_right = 682.0
+margin_bottom = 441.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="Resumo/VBoxContainer"]
+margin_right = 285.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Resumo da Compra"
+align = 1
+
+[node name="Itens" type="VBoxContainer" parent="Resumo/VBoxContainer"]
+margin_top = 83.0
+margin_right = 285.0
+margin_bottom = 105.0
+
+[node name="Item01" type="HBoxContainer" parent="Resumo/VBoxContainer/Itens"]
+margin_right = 285.0
+margin_bottom = 22.0
+alignment = 1
+
+[node name="Nome" type="Label" parent="Resumo/VBoxContainer/Itens/Item01"]
+margin_left = 59.0
+margin_right = 145.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 2 )
+text = "nome_do_item"
+
+[node name="Divisor" type="Label" parent="Resumo/VBoxContainer/Itens/Item01"]
+margin_left = 149.0
+margin_right = 189.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 2 )
+text = ".........."
+
+[node name="Valor" type="Label" parent="Resumo/VBoxContainer/Itens/Item01"]
+margin_left = 193.0
+margin_right = 225.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 2 )
+text = "00,00"
+
+[node name="Botoes" type="CenterContainer" parent="Resumo/VBoxContainer"]
+margin_top = 135.0
+margin_right = 285.0
+margin_bottom = 163.0
+
+[node name="BotaoFinalizar" type="Button" parent="Resumo/VBoxContainer/Botoes"]
+margin_left = 107.0
+margin_right = 177.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = " Finalizar "
+
+[node name="Pagar" type="CenterContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.00424194 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pagar"]
+margin_left = 413.0
+margin_top = 304.0
+margin_right = 667.0
+margin_bottom = 415.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="Pagar/VBoxContainer"]
+margin_right = 254.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Insira seu cartão"
+align = 1
+
+[node name="Botoes" type="CenterContainer" parent="Pagar/VBoxContainer"]
+margin_top = 83.0
+margin_right = 254.0
+margin_bottom = 111.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pagar/VBoxContainer/Botoes"]
+margin_left = 100.0
+margin_right = 153.0
+margin_bottom = 28.0
+
+[node name="BotaoPagar" type="Button" parent="Pagar/VBoxContainer/Botoes/HBoxContainer"]
+margin_right = 53.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = " Pagar "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/iniciar = SubResource( 4 )
+anims/resumo_to_pagar = SubResource( 5 )
+[connection signal="button_up" from="Resumo/VBoxContainer/Botoes/BotaoFinalizar" to="." method="_on_BotaoFinalizar_button_up"]
+[connection signal="button_up" from="Pagar/VBoxContainer/Botoes/HBoxContainer/BotaoPagar" to="." method="_on_BotaoPagar_button_up"]
