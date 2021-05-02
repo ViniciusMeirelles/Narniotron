@@ -34,7 +34,7 @@ func adicionar_itens():
 		var produto = item.produto
 		# O nome do produto segue o modelo "tipo_marca_cor_tamanho"
 		nodo_item.get_node("Nome").text = produto.tipo+"_"+produto.marca+"_"+\
-		                                 produto.cor+"_"+String(produto.tamanho)
+										 produto.cor+"_"+String(produto.tamanho)
 		nodo_item.get_node("Valor").text = String(produto.preco)
 	
 	# Cria valor total
