@@ -1,6 +1,9 @@
 extends Control
 
+onready var espelho = get_parent().get_parent()
+
 export var ativar_teste = false
+
 
 func _ready():
 	if ativar_teste:
@@ -81,6 +84,6 @@ func _on_BotaoEscolher_button_up():
 			if estilo.get_node("CheckBox").pressed:
 				estilos.push_back(estilo.get_node("Label").text)
 	
-#	get_parent().usuario_logado.set_cores(cores)
-#	get_parent().usuario_logado.set_marcas(marcas)
-#	get_parent().usuario_logado.set_estilos(estilos)
+#	espelho.usuarioLogado.set_cores(cores)
+#	espelho.usuarioLogado.set_marcas(marcas)
+#	espelho.usuarioLogado.set_estilos(estilos)
