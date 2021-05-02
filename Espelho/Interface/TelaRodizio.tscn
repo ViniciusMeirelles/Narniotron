@@ -1,0 +1,226 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Espelho/Interface/Scripts/TelaRodizio.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "finalizar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "rodizio_to_devolver"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Devolver:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Devolver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Rodizio:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Rodizio:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="TelaRodizio" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.298039, 0.298039, 0.298039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rodizio" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Rodizio"]
+margin_left = 426.0
+margin_top = 266.0
+margin_right = 653.0
+margin_bottom = 454.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="Rodizio/VBoxContainer"]
+margin_right = 227.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Pronto!"
+align = 1
+
+[node name="Label" type="Label" parent="Rodizio/VBoxContainer"]
+margin_top = 83.0
+margin_right = 227.0
+margin_bottom = 130.0
+custom_fonts/font = ExtResource( 2 )
+text = "Estamos enviando roupas ao provador.
+É só experimentar!"
+align = 1
+
+[node name="Botoes" type="CenterContainer" parent="Rodizio/VBoxContainer"]
+margin_top = 160.0
+margin_right = 227.0
+margin_bottom = 188.0
+
+[node name="BotaoTerminar" type="Button" parent="Rodizio/VBoxContainer/Botoes"]
+margin_left = 77.0
+margin_right = 149.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = " Terminar "
+
+[node name="Devolver" type="CenterContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Devolver"]
+margin_left = 390.0
+margin_top = 253.0
+margin_right = 689.0
+margin_bottom = 466.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="Devolver/VBoxContainer"]
+margin_right = 299.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Agora é só devolver!"
+align = 1
+
+[node name="Label" type="Label" parent="Devolver/VBoxContainer"]
+margin_top = 83.0
+margin_right = 299.0
+margin_bottom = 155.0
+custom_fonts/font = ExtResource( 2 )
+text = "Por favor, coloque as roupas de volta no cabide!
+Elas serão retiradas automaticamente do seu
+carrinho de compras."
+align = 1
+
+[node name="Botoes" type="CenterContainer" parent="Devolver/VBoxContainer"]
+margin_top = 185.0
+margin_right = 299.0
+margin_bottom = 213.0
+
+[node name="BotaoDevolver" type="Button" parent="Devolver/VBoxContainer/Botoes"]
+margin_left = 115.0
+margin_right = 184.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = " Devolver "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/finalizar = SubResource( 6 )
+anims/iniciar = SubResource( 4 )
+anims/rodizio_to_devolver = SubResource( 5 )
+[connection signal="button_up" from="Rodizio/VBoxContainer/Botoes/BotaoTerminar" to="." method="_on_BotaoTerminar_button_up"]
+[connection signal="button_up" from="Devolver/VBoxContainer/Botoes/BotaoDevolver" to="." method="_on_BotaoDevolver_button_up"]
