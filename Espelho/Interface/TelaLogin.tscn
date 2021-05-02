@@ -1,0 +1,265 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Espelho/Interface/Scripts/TelaLogin.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "login_to_cadastro"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Login:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cadastro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cadastro:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Login:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="TelaLogin" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.298039, 0.298039, 0.298039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Login" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Login"]
+margin_left = 390.0
+margin_top = 216.0
+margin_right = 690.0
+margin_bottom = 503.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="Login/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Login"
+align = 1
+
+[node name="Email" type="VBoxContainer" parent="Login/VBoxContainer"]
+margin_top = 83.0
+margin_right = 300.0
+margin_bottom = 141.0
+
+[node name="Label" type="Label" parent="Login/VBoxContainer/Email"]
+margin_right = 300.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "e-mail:"
+align = 1
+
+[node name="email" type="LineEdit" parent="Login/VBoxContainer/Email"]
+margin_top = 26.0
+margin_right = 300.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="Senha" type="VBoxContainer" parent="Login/VBoxContainer"]
+margin_top = 171.0
+margin_right = 300.0
+margin_bottom = 229.0
+
+[node name="Label" type="Label" parent="Login/VBoxContainer/Senha"]
+margin_right = 300.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "senha:"
+align = 1
+
+[node name="senha" type="LineEdit" parent="Login/VBoxContainer/Senha"]
+margin_top = 26.0
+margin_right = 300.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+secret = true
+
+[node name="Botoes" type="HBoxContainer" parent="Login/VBoxContainer"]
+margin_top = 259.0
+margin_right = 300.0
+margin_bottom = 287.0
+custom_constants/separation = 30
+alignment = 1
+
+[node name="ButtonLogar" type="Button" parent="Login/VBoxContainer/Botoes"]
+margin_left = 74.0
+margin_right = 125.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = " Login "
+
+[node name="ButtonRegistrar" type="Button" parent="Login/VBoxContainer/Botoes"]
+margin_left = 155.0
+margin_right = 226.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = " Cadastro "
+
+[node name="Cadastro" type="CenterContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cadastro"]
+margin_left = 390.0
+margin_top = 172.0
+margin_right = 690.0
+margin_bottom = 547.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="Cadastro/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Cadastro"
+align = 1
+
+[node name="Nome" type="VBoxContainer" parent="Cadastro/VBoxContainer"]
+margin_top = 83.0
+margin_right = 300.0
+margin_bottom = 141.0
+
+[node name="Label" type="Label" parent="Cadastro/VBoxContainer/Nome"]
+margin_right = 300.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "nome:"
+align = 1
+
+[node name="nome" type="LineEdit" parent="Cadastro/VBoxContainer/Nome"]
+margin_top = 26.0
+margin_right = 300.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="Email" type="VBoxContainer" parent="Cadastro/VBoxContainer"]
+margin_top = 171.0
+margin_right = 300.0
+margin_bottom = 229.0
+
+[node name="Label" type="Label" parent="Cadastro/VBoxContainer/Email"]
+margin_right = 300.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "e-mail:"
+align = 1
+
+[node name="email" type="LineEdit" parent="Cadastro/VBoxContainer/Email"]
+margin_top = 26.0
+margin_right = 300.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="Senha" type="VBoxContainer" parent="Cadastro/VBoxContainer"]
+margin_top = 259.0
+margin_right = 300.0
+margin_bottom = 317.0
+
+[node name="Label" type="Label" parent="Cadastro/VBoxContainer/Senha"]
+margin_right = 300.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "senha:"
+align = 1
+
+[node name="senha" type="LineEdit" parent="Cadastro/VBoxContainer/Senha"]
+margin_top = 26.0
+margin_right = 300.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+secret = true
+
+[node name="Botoes" type="HBoxContainer" parent="Cadastro/VBoxContainer"]
+margin_top = 347.0
+margin_right = 300.0
+margin_bottom = 375.0
+custom_constants/separation = 30
+alignment = 1
+
+[node name="BotaoFinalizar" type="Button" parent="Cadastro/VBoxContainer/Botoes"]
+margin_left = 115.0
+margin_right = 185.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = " Finalizar "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/login_to_cadastro = SubResource( 2 )
+[connection signal="button_up" from="Login/VBoxContainer/Botoes/ButtonLogar" to="." method="_on_ButtonLogar_button_up"]
+[connection signal="button_up" from="Login/VBoxContainer/Botoes/ButtonRegistrar" to="." method="_on_ButtonRegistrar_button_up"]
+[connection signal="button_up" from="Cadastro/VBoxContainer/Botoes/BotaoFinalizar" to="." method="_on_BotaoFinalizarCadastro_button_up"]

@@ -1,0 +1,288 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Espelho/Interface/Scripts/TelaPreferencias.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Preferencias:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Preferencias:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="TelaPreferencias" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.298039, 0.298039, 0.298039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preferencias" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Preferencias"]
+margin_left = 398.0
+margin_top = 260.0
+margin_right = 681.0
+margin_bottom = 459.0
+custom_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="Preferencias/VBoxContainer"]
+margin_right = 283.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "Preferências"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer"]
+margin_top = 83.0
+margin_right = 283.0
+margin_bottom = 199.0
+custom_constants/separation = 25
+
+[node name="Cores" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
+margin_right = 67.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_right = 67.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "Cores"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_top = 36.0
+margin_right = 67.0
+margin_bottom = 60.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "cor_01"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_top = 64.0
+margin_right = 67.0
+margin_bottom = 88.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer2"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer2"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "cor_02"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_top = 92.0
+margin_right = 67.0
+margin_bottom = 116.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer3"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer3"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "cor_03"
+
+[node name="Marcas" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
+margin_left = 92.0
+margin_right = 177.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
+margin_right = 85.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "Marcas"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
+margin_top = 36.0
+margin_right = 85.0
+margin_bottom = 60.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 85.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "marca_01"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
+margin_top = 64.0
+margin_right = 85.0
+margin_bottom = 88.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer2"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer2"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 85.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "marca_02"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
+margin_top = 92.0
+margin_right = 85.0
+margin_bottom = 116.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer3"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer3"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 85.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "marca_03"
+
+[node name="Estilos" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
+margin_left = 202.0
+margin_right = 283.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
+margin_right = 81.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "Estilos"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
+margin_top = 36.0
+margin_right = 81.0
+margin_bottom = 60.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 81.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "estilo_01"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
+margin_top = 64.0
+margin_right = 81.0
+margin_bottom = 88.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer2"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer2"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 81.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "estilo_02"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
+margin_top = 92.0
+margin_right = 81.0
+margin_bottom = 116.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer3"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer3"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 81.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "estilo_03"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/iniciar = SubResource( 3 )
