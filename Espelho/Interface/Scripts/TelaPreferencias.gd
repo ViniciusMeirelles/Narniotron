@@ -12,7 +12,7 @@ func _ready():
 # Esta funcao recebe um array das cores, das marcas e dos estilos que o usuario
 #prefere. Ela ativa as checkboxes de acordo com as preferencias recebidas
 func ativar(cores:Array, marcas:Array, estilos:Array):
-	$AnimationPlayer.play("iniciar")
+	get_node("AnimationPlayer").play("iniciar")
 	
 	# Estabelece preferencias
 	# CORES
@@ -53,3 +53,34 @@ func ativar(cores:Array, marcas:Array, estilos:Array):
 		check_box.pressed = false
 		if estilos.find(nome_estilo) != -1:
 			check_box.pressed = true
+
+
+func _on_BotaoEscolher_button_up():
+	var cores = []
+	var marcas = []
+	var estilos = []
+	
+	# CORES
+	for cor in get_node("Preferencias/VBoxContainer/HBoxContainer/Cores").\
+	                                                             get_children():
+		if cor.name!="Label": # Ignora o titulo da sessao
+			if cor.get_node("CheckBox").pressed:
+				cores.push_back(cor.get_node("Label").text)
+	
+	# MARCAS
+	for marca in get_node("Preferencias/VBoxContainer/HBoxContainer/Marcas").\
+	                                                             get_children():
+		if marca.name!="Label": # Ignora o titulo da sessao
+			if marca.get_node("CheckBox").pressed:
+				marcas.push_back(marca.get_node("Label").text)
+	
+	# ESTILOS
+	for estilo in get_node("Preferencias/VBoxContainer/HBoxContainer/Estilos").\
+	                                                             get_children():
+		if estilo.name!="Label": # Ignora o titulo da sessao
+			if estilo.get_node("CheckBox").pressed:
+				estilos.push_back(estilo.get_node("Label").text)
+	
+#	get_parent().usuario_logado.set_cores(cores)
+#	get_parent().usuario_logado.set_marcas(marcas)
+#	get_parent().usuario_logado.set_estilos(estilos)
