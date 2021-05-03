@@ -2,15 +2,6 @@ extends Control
 
 onready var espelho = get_parent().get_parent()
 
-export var ativar_teste = false
-
-
-func _ready():
-	if ativar_teste:
-		# Simula o espelho ativando a tela de preferencias com cores, marcas e
-		#estilos ja definidos como preferencias
-		ativar(["cor_01"], ["marca_01", "marca_02"], ["estilo_02"])
-
 
 # Esta funcao recebe um array das cores, das marcas e dos estilos que o usuario
 #prefere. Ela ativa as checkboxes de acordo com as preferencias recebidas
@@ -84,6 +75,6 @@ func _on_BotaoEscolher_button_up():
 			if estilo.get_node("CheckBox").pressed:
 				estilos.push_back(estilo.get_node("Label").text)
 	
-#	espelho.usuarioLogado.set_cores(cores)
-#	espelho.usuarioLogado.set_marcas(marcas)
-#	espelho.usuarioLogado.set_estilos(estilos)
+	espelho.usuarioLogado.set_cores(cores)
+	espelho.usuarioLogado.set_marcas(marcas)
+	espelho.usuarioLogado.set_estilos(estilos)

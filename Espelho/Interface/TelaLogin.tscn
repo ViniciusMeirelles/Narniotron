@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -11,7 +11,34 @@ use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "login_fim"
+resource_name = "cadastro_fim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cadastro:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cadastro:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Login:visible")
@@ -38,7 +65,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Login:visible")
 tracks/0/interp = 1
@@ -125,6 +152,16 @@ custom_fonts/font = SubResource( 1 )
 text = "Login"
 align = 1
 
+[node name="Erro" type="Label" parent="Login/VBoxContainer"]
+visible = false
+margin_top = 83.0
+margin_right = 300.0
+margin_bottom = 105.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0.431373, 0.431373, 1 )
+text = "Usuário ou senha inválidos!"
+align = 1
+
 [node name="Email" type="VBoxContainer" parent="Login/VBoxContainer"]
 margin_top = 83.0
 margin_right = 300.0
@@ -189,7 +226,6 @@ text = " Cadastro "
 
 [node name="Cadastro" type="CenterContainer" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -286,8 +322,9 @@ custom_fonts/font = ExtResource( 1 )
 text = " Finalizar "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/login_fim = SubResource( 2 )
-anims/login_to_cadastro = SubResource( 3 )
+anims/cadastro_fim = SubResource( 2 )
+anims/login_fim = SubResource( 3 )
+anims/login_to_cadastro = SubResource( 4 )
 [connection signal="button_up" from="Login/VBoxContainer/Botoes/ButtonLogar" to="." method="_on_ButtonLogar_button_up"]
 [connection signal="button_up" from="Login/VBoxContainer/Botoes/ButtonRegistrar" to="." method="_on_ButtonRegistrar_button_up"]
 [connection signal="button_up" from="Cadastro/VBoxContainer/Botoes/BotaoFinalizar" to="." method="_on_BotaoFinalizarCadastro_button_up"]

@@ -10,7 +10,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "finalizar"
 length = 0.5
 tracks/0/type = "value"
@@ -38,7 +38,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -64,7 +64,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "rodizio_to_devolver"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Devolver:visible")
@@ -201,7 +201,7 @@ margin_top = 83.0
 margin_right = 299.0
 margin_bottom = 155.0
 custom_fonts/font = ExtResource( 2 )
-text = "Por favor, coloque as roupas de volta no cabide!
+text = "Por favor, coloque as roupas de volta nos cabides!
 Elas serão retiradas automaticamente do seu
 carrinho de compras."
 align = 1
@@ -219,8 +219,8 @@ custom_fonts/font = ExtResource( 2 )
 text = " Devolver "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/finalizar = SubResource( 6 )
-anims/iniciar = SubResource( 4 )
-anims/rodizio_to_devolver = SubResource( 5 )
+anims/finalizar = SubResource( 2 )
+anims/iniciar = SubResource( 3 )
+anims/rodizio_to_devolver = SubResource( 4 )
 [connection signal="button_up" from="Rodizio/VBoxContainer/Botoes/BotaoTerminar" to="." method="_on_BotaoTerminar_button_up"]
 [connection signal="button_up" from="Devolver/VBoxContainer/Botoes/BotaoDevolver" to="." method="_on_BotaoDevolver_button_up"]

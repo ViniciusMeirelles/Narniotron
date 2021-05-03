@@ -3,11 +3,19 @@ extends Control
 onready var espelho = get_parent().get_parent()
 
 
+func _ready():
+	get_node("Login").show()
+	get_node("Login/VBoxContainer/Erro").hide()
+	get_node("Cadastro").hide()
+
+
 func _on_ButtonLogar_button_up():
 	var email = get_node("Login/VBoxContainer/Email/email").text
 	var senha = get_node("Login/VBoxContainer/Senha/senha").text
-#	if espelho.tentativaDeLogin(email, senha):
-	get_node("AnimationPlayer").play("login_fim")
+	if espelho.tentativaDeLogin(email, senha):
+		get_node("AnimationPlayer").play("login_fim")
+	else:
+		get_node("Login/VBoxContainer/Erro").show()
 
 
 # Vai para cadastro
@@ -16,7 +24,8 @@ func _on_ButtonRegistrar_button_up():
 
 
 func _on_BotaoFinalizarCadastro_button_up():
-	var nome = get_node("Cadastro/VBoxContainer/Nome/nome")
-	var email = get_node("Cadastro/VBoxContainer/Email/email")
-	var senha = get_node("Cadastro/VBoxContainer/Senha/senha")
-#	espelho.cadastro(email, nome, senha)
+	var nome = get_node("Cadastro/VBoxContainer/Nome/nome").text
+	var email = get_node("Cadastro/VBoxContainer/Email/email").text
+	var senha = get_node("Cadastro/VBoxContainer/Senha/senha").text
+	espelho.cadastro(email, nome, senha)
+	get_node("AnimationPlayer").play("cadastro_fim")

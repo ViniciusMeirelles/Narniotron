@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=2]
@@ -10,7 +10,35 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
+resource_name = "finalizar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -36,7 +64,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "pagar_to_aprovado"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pagar:visible")
@@ -87,7 +115,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "pagar_to_recusado"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pagar:visible")
@@ -138,7 +166,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "recusado_to_pagar"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pagar:visible")
@@ -189,8 +217,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "resumo_to_pagar"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Resumo:visible")
 tracks/0/interp = 1
@@ -452,11 +479,12 @@ custom_fonts/font = ExtResource( 2 )
 text = " Não "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/iniciar = SubResource( 4 )
-anims/pagar_to_aprovado = SubResource( 6 )
-anims/pagar_to_recusado = SubResource( 7 )
-anims/recusado_to_pagar = SubResource( 8 )
-anims/resumo_to_pagar = SubResource( 5 )
+anims/finalizar = SubResource( 2 )
+anims/iniciar = SubResource( 3 )
+anims/pagar_to_aprovado = SubResource( 4 )
+anims/pagar_to_recusado = SubResource( 5 )
+anims/recusado_to_pagar = SubResource( 6 )
+anims/resumo_to_pagar = SubResource( 7 )
 [connection signal="button_up" from="Resumo/VBoxContainer/Botoes/BotaoFinalizar" to="." method="_on_BotaoFinalizar_button_up"]
 [connection signal="button_up" from="Pagar/VBoxContainer/Botoes/HBoxContainer/BotaoPagar" to="." method="_on_BotaoPagar_button_up"]
 [connection signal="button_up" from="PagamentoAprovado/VBoxContainer/Botoes/HBoxContainer/BotaoSair" to="." method="_on_BotaoSair_button_up"]

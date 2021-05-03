@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Espelho/Espelho.gd" type="Script" id=1]
+[ext_resource path="res://Espelho/Interface/TelaLogin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Espelho/Interface/TelaPagamento.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Espelho/Interface/TelaRodizio.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Espelho/Interface/TelaPreferencias.tscn" type="PackedScene" id=5]
 
 [node name="Espelho" type="Node"]
 script = ExtResource( 1 )
+
+[node name="ControladorInterface" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TelaLogin" parent="ControladorInterface" instance=ExtResource( 2 )]
+
+[node name="TelaPagamento" parent="ControladorInterface" instance=ExtResource( 3 )]
+visible = false
+
+[node name="TelaPreferencias" parent="ControladorInterface" instance=ExtResource( 5 )]
+visible = false
+
+[node name="TelaRodizio" parent="ControladorInterface" instance=ExtResource( 4 )]
+visible = false

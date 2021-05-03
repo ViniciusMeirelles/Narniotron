@@ -55,18 +55,17 @@ func _on_BotaoFinalizar_button_up():
 
 # Realizar pagamento
 func _on_BotaoPagar_button_up():
-	pass # Replace with function body.
-#	var pagamento_aprovado = espelho.realizarPagamento()
-#	if pagamento_aprovado:
-#		get_node("AnimationPlayer").play("pagar_to_aprovado")
-#	else:
-#		get_node("AnimationPlayer").play("pagar_to_recusado")
+	var pagamento_aprovado = espelho.realizarPagamento()
+	if pagamento_aprovado:
+		get_node("AnimationPlayer").play("pagar_to_aprovado")
+	else:
+		get_node("AnimationPlayer").play("pagar_to_recusado")
 
 
 # Pagamento aprovado ou recusado, sair
 func _on_BotaoSair_button_up():
-	pass # Replace with function body.
-#	espelho.logout()
+	espelho.logout()
+	get_node("AnimationPlayer").play("finalizar")
 
 
 # Pagamento recusado, tentar novamente
