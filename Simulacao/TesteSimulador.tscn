@@ -1,12 +1,56 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Simulacao/Roupa/RoupaSimulada.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Simulacao/Cabide/CabideSimulado.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Simulacao/Cabide/CabideSimulado.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Simulacao/Roupa/RoupaSimulada.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cabideira/Cabideira.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Espelho/Espelho.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Espelho/Interface/InterfaceUsuario.tscn" type="PackedScene" id=6]
 
-[node name="Node2D" type="Node2D"]
+[node name="Simulacao" type="Node2D"]
 
-[node name="CabideSimulado" parent="." instance=ExtResource( 2 )]
-position = Vector2( 772, 350.5 )
+[node name="InterfaceUsuario" parent="." instance=ExtResource( 6 )]
+margin_left = 97.5439
+margin_top = 179.952
+margin_right = 97.5439
+margin_bottom = 179.952
 
-[node name="RoupaSimulada" parent="." instance=ExtResource( 1 )]
-position = Vector2( 202.896, 238.936 )
+[node name="TelaLogin" parent="InterfaceUsuario" index="0"]
+caminho_espelho = NodePath("../../Sistema/Espelho")
+
+[node name="TelaPagamento" parent="InterfaceUsuario" index="1"]
+caminho_espelho = NodePath("../../Sistema/Espelho")
+
+[node name="TelaPreferencias" parent="InterfaceUsuario" index="2"]
+caminho_espelho = NodePath("../../Sistema/Espelho")
+
+[node name="TelaRodizio" parent="InterfaceUsuario" index="3"]
+caminho_espelho = NodePath("../../Sistema/Espelho")
+
+[node name="Sistema" type="Node2D" parent="."]
+
+[node name="Cabideira" parent="Sistema" instance=ExtResource( 4 )]
+
+[node name="Camera" parent="Sistema" instance=ExtResource( 3 )]
+
+[node name="Espelho" parent="Sistema" instance=ExtResource( 5 )]
+
+[node name="Roupas" type="Node2D" parent="."]
+
+[node name="RoupaSimulada" parent="Roupas" instance=ExtResource( 2 )]
+position = Vector2( 547.663, 346.571 )
+
+[node name="RoupaSimulada2" parent="Roupas" instance=ExtResource( 2 )]
+position = Vector2( 535.891, 205.3 )
+
+[node name="Cabides" type="Node2D" parent="."]
+
+[node name="CabideSimulado" parent="Cabides" instance=ExtResource( 1 )]
+position = Vector2( 854.408, 520.361 )
+
+[node name="CabideSimulado2" parent="Cabides" instance=ExtResource( 1 )]
+position = Vector2( 835.908, 180.639 )
+
+[editable path="InterfaceUsuario"]
+
+[editable path="Sistema/Espelho"]

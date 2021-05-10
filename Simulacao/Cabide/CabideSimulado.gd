@@ -1,7 +1,7 @@
 extends Node2D
 
-signal roupa_devolvida(roupa)
+var produto
 
 func _on_Area2D_area_entered(area):
-	emit_signal("roupa_devolvida", area.get_parent())
-	print("ROUPA DEVOLVIDA!!")
+	produto = area.get_parent().get_node("Produto")
+	print("ROUPA RECONHECIDA!!")

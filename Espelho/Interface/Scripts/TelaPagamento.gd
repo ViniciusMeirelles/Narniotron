@@ -1,6 +1,7 @@
 extends Control
 
-onready var espelho = get_parent().get_parent()
+export(NodePath) var caminho_espelho
+onready var espelho = get_node(caminho_espelho)
 
 
 func _ready():
