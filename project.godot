@@ -19,6 +19,10 @@ config/name="Narniotron"
 run/main_scene="res://Espelho/Interface/TelaLogin.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Classes="*res://Classes.gd"
+
 [display]
 
 window/size/width=1080
