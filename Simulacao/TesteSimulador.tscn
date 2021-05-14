@@ -135,7 +135,7 @@ __meta__ = {
 position = Vector2( 604.117, 435.536 )
 
 [node name="Cabides" type="Node2D" parent="Simulador"]
-position = Vector2( 604.995, 382.811 )
+position = Vector2( 604.995, 392.811 )
 [connection signal="pressed" from="Simulador/Actions/EntrarSair" to="Simulador" method="_on_EntrarSair_pressed"]
 [connection signal="pressed" from="Simulador/Actions/DevolverCabides" to="Simulador" method="_on_DevolverCabides_pressed"]
 [connection signal="pressed" from="Simulador/Actions/InserirRemoverCartao" to="Simulador" method="_on_InserirRemoverCartao_pressed"]

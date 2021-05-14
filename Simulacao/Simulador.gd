@@ -66,13 +66,13 @@ func aoReceberCabide(cabide: Classes.Cabide):
 	var nCabide = oCabide.instance()
 	nCabide.cabide = cabide
 	nCabide.position.x = 70.0 * (totalSpawned % 5)
-	nCabide.position.y = 100.0 * (int(floor(totalSpawned/5.0)) % 3)
+	nCabide.position.y = 110.0 * (int(floor(totalSpawned/5.0)) % 3)
 	
 	var nRoupa = oRoupaSimulada.instance()
 	nRoupa.produto = cabide.produto
 	nRoupa.get_node("Sprite").texture = load(cabide.produto.url)
 	nRoupa.position.x = 70.0 * (totalSpawned % 5)
-	nRoupa.position.y = 100.0 * (int(floor(totalSpawned/5.0)) % 3)
+	nRoupa.position.y = 110.0 * (int(floor(totalSpawned/5.0)) % 3)
 	
 	get_node("Roupas").add_child(nRoupa)
 	get_node("Cabides").add_child(nCabide)
