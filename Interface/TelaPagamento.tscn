@@ -284,8 +284,6 @@ __meta__ = {
 }
 
 [node name="Resumo" type="CenterContainer" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -294,9 +292,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Resumo"]
 margin_left = 397.0
-margin_top = 278.0
+margin_top = 289.0
 margin_right = 682.0
-margin_bottom = 441.0
+margin_bottom = 430.0
 custom_constants/separation = 30
 
 [node name="Titulo" type="Label" parent="Resumo/VBoxContainer"]
@@ -309,9 +307,10 @@ align = 1
 [node name="Itens" type="VBoxContainer" parent="Resumo/VBoxContainer"]
 margin_top = 83.0
 margin_right = 285.0
-margin_bottom = 105.0
+margin_bottom = 83.0
 
 [node name="Item01" type="HBoxContainer" parent="Resumo/VBoxContainer/Itens"]
+visible = false
 margin_right = 285.0
 margin_bottom = 22.0
 alignment = 1
@@ -338,9 +337,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "00,00"
 
 [node name="Botoes" type="CenterContainer" parent="Resumo/VBoxContainer"]
-margin_top = 135.0
+margin_top = 113.0
 margin_right = 285.0
-margin_bottom = 163.0
+margin_bottom = 141.0
 
 [node name="BotaoFinalizar" type="Button" parent="Resumo/VBoxContainer/Botoes"]
 margin_left = 107.0
@@ -350,6 +349,8 @@ custom_fonts/font = ExtResource( 2 )
 text = " Finalizar "
 
 [node name="Pagar" type="CenterContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -372,7 +373,7 @@ align = 1
 
 [node name="PagamentoAprovado" type="CenterContainer" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

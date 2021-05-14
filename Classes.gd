@@ -3,16 +3,20 @@ extends Node
 onready var tree = get_tree()
 
 class Produto:
-	var estilos: Array #Array de strings
-	var tamanho: int
+	var nome: String
 	var preco: float
+	var url: String
+	var estilos: Array #Array de strings
 	var cores: Array
 	var marcas: Array
 	var tipos: Array
 	
-	func _init(_estilos: Array, _preco: float, _cores: Array, _marcas: Array, _tipos: Array):
-		estilos = _estilos
+	func _init(_nome: String, _preco: float, _url: String, _estilos: Array, \
+			_cores: Array, _marcas: Array, _tipos: Array):
+		nome = _nome
 		preco = _preco
+		url = _url
+		estilos = _estilos
 		cores = _cores
 		marcas = _marcas
 		tipos = _tipos

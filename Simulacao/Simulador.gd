@@ -46,6 +46,9 @@ func _on_DevolverCabides_pressed():
 		if cabide.produto != null:
 			cabide.produto.queue_free()
 	
+	for produto in get_node("Roupas").get_children():
+		produto.get_node("CollisionShape2D").disabled = true
+	
 	TelaRodizio.devolverRoupas()
 
 func _ready():
@@ -62,6 +65,7 @@ func aoReceberCabide(cabide: Classes.Cabide):
 	
 	var nRoupa = oRoupaSimulada.instance()
 	nRoupa.produto = cabide.produto
+	nRoupa.get_node("Sprite").texture = load(cabide.produto.url)
 	
 	get_node("Roupas").add_child(nRoupa)
 	get_node("Cabides").add_child(nCabide)

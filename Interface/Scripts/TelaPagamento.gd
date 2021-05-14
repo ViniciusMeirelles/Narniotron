@@ -6,35 +6,40 @@ signal finalizarTela
 # Ativar resumo da compra
 func ativar():
 	get_node("AnimationPlayer").play("iniciar")
-#	adicionar_itens()
+	adicionar_itens()
 
 func adicionar_itens():
-	var item_padrao = get_node("Resumo/VBoxContainer/Itens/Item01")
+	var item_exemplo = get_node("Resumo/VBoxContainer/Itens/Item01")
 	var primeiro_item = true
 	
+	for children in get_node("Resumo/VBoxContainer/Itens").get_children():
+		if children.name == "Item01":
+			continue
+		
+		children.queue_free()
+	
 	# Cria cada item
-	for item in espelho.pedidoAtual.itens:
+	for i in range(espelho.pedidoAtual.items.size()):
+		var item: Classes.Item = espelho.pedidoAtual.items[i]
+		
 		var nodo_item
-		if primeiro_item:
-			nodo_item = item_padrao
-			primeiro_item = false
-		else:
-			nodo_item = item_padrao.duplicate()
-			nodo_item.owner = item_padrao.owner
-			item_padrao.get_parent().add_child(nodo_item)
+		nodo_item = item_exemplo.duplicate()
+		nodo_item.visible = true
+		nodo_item.owner = item_exemplo.owner
+		item_exemplo.get_parent().add_child(nodo_item)
 		
 		var produto = item.produto
 		# O nome do produto segue o modelo "tipo_marca_cor_tamanho"
-		nodo_item.get_node("Nome").text = produto.tipo+"_"+produto.marca+"_"+\
-										 produto.cor+"_"+String(produto.tamanho)
+		nodo_item.get_node("Nome").text = "%s (x%d)" % [produto.nome, item.quantidade]
 		nodo_item.get_node("Valor").text = String(produto.preco)
 	
 	# Cria valor total
-	var nodo_item = item_padrao.duplicate()
-	nodo_item.owner = item_padrao.owner
-	item_padrao.get_parent().add_child(nodo_item)
+	var nodo_item = item_exemplo.duplicate()
+	nodo_item.owner = item_exemplo.owner
+	item_exemplo.get_parent().add_child(nodo_item)
+	nodo_item.visible = true
 	
-	var valor_total = espelho.pedidoAtual.calculaValor()
+	var valor_total = espelho.pedidoAtual.calcularValor()
 	nodo_item.get_node("Nome").text = "Total"
 	nodo_item.get_node("Valor").text = String(valor_total)
 

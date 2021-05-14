@@ -1,7 +1,7 @@
 extends Node2D
 
 var produtos = {
-	"exampleShirt": Classes.Produto.new(["estilo_01"], 100.0, ["cor_01"], ["marca_01"], ["tipo_01"])
+	"ArgyleVestBlue": Classes.Produto.new("Argyle Vest Blue", 100.0, "res://Imagens/ArgyleVestBlue.png", ["estilo_01"], ["cor_01"], ["marca_01"], ["tipo_01"])
 }
 
 onready var node = {
@@ -30,7 +30,7 @@ func _ready():
 		Classes.Usuario.new("a", "a", "a", [], Classes.Preferencia.new([], [], [], []))
 	]
 	var produtosEmEstoque = [
-		produtos.exampleShirt
+		produtos.ArgyleVestBlue
 	]
 	
 	cabideira = Classes.Cabideira.new([], null)
