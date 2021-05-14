@@ -37,8 +37,8 @@ func _ready():
 	
 	cabideira = Classes.Cabideira.new([], null)
 	
-	for key in produtos.keys():
-		var produto: Classes.Produto = produtos[key]
+	for i in range(produtosEmEstoque.size()):
+		var produto: Classes.Produto = produtosEmEstoque[i]
 		var cabide = Classes.Cabide.new(produto, cabideira)
 		cabideira.cabides.push_front(cabide)
 	

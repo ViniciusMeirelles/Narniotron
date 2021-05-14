@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Espelho/Interface/Scripts/TelaLogin.gd" type="Script" id=3]
+[ext_resource path="res://Interface/Scripts/TelaLogin.gd" type="Script" id=3]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -61,7 +62,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "iniciar"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cadastro:visible")
@@ -100,7 +101,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Login:visible")
@@ -127,7 +128,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Login:visible")
 tracks/0/interp = 1
@@ -386,9 +387,9 @@ text = " Finalizar "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/cadastro_fim = SubResource( 2 )
-anims/iniciar = SubResource( 5 )
-anims/login_fim = SubResource( 3 )
-anims/login_to_cadastro = SubResource( 4 )
+anims/iniciar = SubResource( 3 )
+anims/login_fim = SubResource( 4 )
+anims/login_to_cadastro = SubResource( 5 )
 [connection signal="button_up" from="Login/VBoxContainer/Botoes/ButtonLogar" to="." method="_on_ButtonLogar_button_up"]
 [connection signal="button_up" from="Login/VBoxContainer/Botoes/ButtonRegistrar" to="." method="_on_ButtonRegistrar_button_up"]
 [connection signal="button_up" from="Cadastro/VBoxContainer/Botoes/BotaoFinalizar" to="." method="_on_BotaoFinalizarCadastro_button_up"]

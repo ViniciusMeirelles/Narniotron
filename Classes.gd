@@ -185,7 +185,7 @@ class Espelho:
 		if pedidoAtual.items.size() == 0: return
 		if pedidoAtual.pedidoPago: return
 		
-		usuarioLogado.historicoDePedidos(pedidoAtual)
+		usuarioLogado.historicoDePedidos.push_front(pedidoAtual)
 		usuarioLogado.notificarFurto()
 		logout()
 		

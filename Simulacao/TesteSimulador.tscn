@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Simulacao/Cabide/CabideSimulado.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Simulacao/Roupa/RoupaSimulada.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Espelho/Interface/InterfaceUsuario.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interface/InterfaceUsuario.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Simulacao/TesteSimulador.gd" type="Script" id=7]
 
 [node name="Simulacao" type="Node2D"]
