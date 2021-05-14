@@ -38,6 +38,14 @@ func _on_InserirRemoverCartao_pressed():
 		InserirRemoverCartaoButton.text = "Inserir cartão"
 
 func _on_DevolverCabides_pressed():
+	for cabide in get_node("Cabides").get_children():
+		cabide.cabide.devolverCabide()
+		
+		cabide.isDisabled = true
+		cabide.queue_free()
+		if cabide.produto != null:
+			cabide.produto.queue_free()
+	
 	TelaRodizio.devolverRoupas()
 
 func _ready():
@@ -45,3 +53,15 @@ func _ready():
 
 func _process(delta):
 	DevolverCabidesButton.disabled = !dentroDoProvador || !TelaRodizio.aceitaDevolucaoDeRoupas
+
+var oCabide = preload("res://Simulacao/Cabide/CabideSimulado.tscn")
+var oRoupaSimulada = preload("res://Simulacao/Roupa/RoupaSimulada.tscn")
+func aoReceberCabide(cabide: Classes.Cabide):
+	var nCabide = oCabide.instance()
+	nCabide.cabide = cabide
+	
+	var nRoupa = oRoupaSimulada.instance()
+	nRoupa.produto = cabide.produto
+	
+	get_node("Roupas").add_child(nRoupa)
+	get_node("Cabides").add_child(nCabide)

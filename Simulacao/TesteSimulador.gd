@@ -1,9 +1,7 @@
 extends Node2D
 
-onready var nSistema = get_node("Sistema")
-
 var produtos = {
-	"exampleShirt": Classes.Produto.new(["Estilo1"], 100.0, ["Cor1"], ["Marca1"], ["Tipo1"])
+	"exampleShirt": Classes.Produto.new(["estilo_01"], 100.0, ["cor_01"], ["marca_01"], ["tipo_01"])
 }
 
 onready var node = {
@@ -41,8 +39,11 @@ func _ready():
 		var produto: Classes.Produto = produtosEmEstoque[i]
 		var cabide = Classes.Cabide.new(produto, cabideira)
 		cabideira.cabides.push_front(cabide)
+		cabide.connect("aoEnviarCabide", get_node("Simulador"), "aoReceberCabide")
 	
 	espelho = Classes.Espelho.new(cabideira, usuariosCadastrados)
+	cabideira.espelho = espelho
+	
 	camera = Classes.CameraInteligente.new(espelho)
 	
 	TelaLogin.espelho = espelho

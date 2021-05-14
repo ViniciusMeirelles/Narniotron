@@ -4,7 +4,6 @@
 [ext_resource path="res://Interface/Scripts/TelaPreferencias.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=3]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 use_mipmaps = true
@@ -273,10 +272,10 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 67.0
+margin_right = 81.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "Estilo1"
+text = "estilo_01"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
 margin_top = 64.0

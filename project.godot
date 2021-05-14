@@ -28,6 +28,13 @@ Classes="*res://Classes.gd"
 window/size/width=1080
 window/size/height=720
 
+[layer_names]
+
+2d_render/layer_2="Produto"
+2d_physics/layer_2="Produto"
+2d_render/layer_3="Cabide"
+2d_physics/layer_3="Cabide"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

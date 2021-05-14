@@ -1,5 +1,7 @@
 extends Node
 
+onready var tree = get_tree()
+
 class Produto:
 	var estilos: Array #Array de strings
 	var tamanho: int
@@ -95,14 +97,17 @@ class Usuario:
 class Cabide:
 	var produto: Produto #nullable
 	var cabideira: Cabideira
+	signal aoEnviarCabide
 	
 	func _init(_produto: Produto, _cabideira: Cabideira):
 		produto = _produto
 		cabideira = _cabideira
 	
 	func irProProvador():
-		print("Enviado ao provador!")
-		#TODO: Implementar integração com o simulador para simular entrega de roupas
+		emit_signal("aoEnviarCabide", self)
+	
+	func devolverCabide():
+		cabideira.aoReceberCabide(self)
 
 class Cabideira:
 	var cabides: Array #Array de cabides
@@ -117,16 +122,17 @@ class Cabideira:
 		
 		for i in range(cabides.size()):
 			var cabide: Cabide = cabides[i]
-			produtos.push_front(cabide.produto)
+			if cabide.produto != null:
+				produtos.push_front(cabide.produto)
 		
 		return produtos
 	
 	func solicitarProdutos(produtos: Array):
 		for i in range(produtos.size()):
 			var produto: Produto = produtos[i]
-			
 			var cabide = encontraCabideDoProduto(produto)
-			if(cabide != null):
+			
+			if cabide != null:
 				cabides.remove(cabides.find(cabide))
 				cabide.irProProvador()
 	
@@ -141,7 +147,8 @@ class Cabideira:
 	
 	func aoReceberCabide(cabide: Cabide):
 		cabides.push_back(cabide)
-		espelho.pedidoAtual.removerProduto(cabide.produto)
+		if cabide.produto != null:
+			espelho.pedidoAtual.removerProduto(cabide.produto)
 
 class Espelho:
 	var cabideira: Cabideira
@@ -201,28 +208,28 @@ class Espelho:
 			
 			var corAceita = false
 			for corPreferencial in preferencia.cores:
-				for corDoProduto in produtos.cores:
+				for corDoProduto in produto.cores:
 					if corPreferencial == corDoProduto:
 						corAceita = true
 			if !corAceita: continue
 			
 			var tipoAceito = false
 			for tipoPreferencial in preferencia.tipos:
-				for tipoDoProduto in produtos.tipos:
+				for tipoDoProduto in produto.tipos:
 					if tipoPreferencial == tipoDoProduto:
 						tipoAceito = true
 			if !tipoAceito: continue
 			
 			var estiloAceito = false
 			for estiloPreferencial in preferencia.estilos:
-				for estiloDoProduto in produtos.estilos:
+				for estiloDoProduto in produto.estilos:
 					if estiloPreferencial == estiloDoProduto:
 						estiloAceito = true
 			if !estiloAceito: continue
 			
 			var marcaAceita = false
 			for marcaPreferencial in preferencia.marcas:
-				for marcaDoProduto in produtos.marcas:
+				for marcaDoProduto in produto.marcas:
 					if marcaPreferencial == marcaDoProduto:
 						marcaAceita = true
 			if !marcaAceita: continue
@@ -239,7 +246,7 @@ class Espelho:
 		while rodizioAtivo:
 			var roupaEncontrada = pesquisarEEnviarRoupas()
 			if !roupaEncontrada: break
-			OS.delay_msec(15000)
+			yield(Classes.tree.create_timer(5.0), "timeout")
 		
 		print("Não temos mais nenhuma roupa que corresponda a essas preferências")
 		#TODO: Implementar integração com o simulador
