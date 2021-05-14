@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -12,7 +12,6 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "cadastro_fim"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cadastro:visible")
 tracks/0/interp = 1
@@ -36,6 +35,69 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Login:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Login:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "iniciar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cadastro:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Login:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Login:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -124,9 +186,9 @@ __meta__ = {
 }
 
 [node name="Fundo" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.298039, 0.298039, 0.298039, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -226,6 +288,7 @@ text = " Cadastro "
 
 [node name="Cadastro" type="CenterContainer" parent="."]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -323,6 +386,7 @@ text = " Finalizar "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/cadastro_fim = SubResource( 2 )
+anims/iniciar = SubResource( 5 )
 anims/login_fim = SubResource( 3 )
 anims/login_to_cadastro = SubResource( 4 )
 [connection signal="button_up" from="Login/VBoxContainer/Botoes/ButtonLogar" to="." method="_on_ButtonLogar_button_up"]

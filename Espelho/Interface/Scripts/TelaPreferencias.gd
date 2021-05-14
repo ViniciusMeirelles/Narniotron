@@ -1,12 +1,13 @@
 extends Control
 
-export(NodePath) var caminho_espelho
-onready var espelho = get_node(caminho_espelho)
-
+var espelho: Classes.Espelho = null
+signal finalizarTela
 
 # Esta funcao recebe um array das cores, das marcas e dos estilos que o usuario
 #prefere. Ela ativa as checkboxes de acordo com as preferencias recebidas
-func ativar(cores:Array, marcas:Array, estilos:Array):
+func ativar():
+	var preferencias = espelho.usuarioLogado.preferencia
+	
 	get_node("AnimationPlayer").play("iniciar")
 	
 	# Estabelece preferencias
@@ -20,7 +21,7 @@ func ativar(cores:Array, marcas:Array, estilos:Array):
 		
 		# Procura cada cor no array de cores que o usuário prefere
 		check_box.pressed = false
-		if cores.find(nome_cor) != -1:
+		if preferencias.cores.find(nome_cor) != -1:
 			check_box.pressed = true
 	
 	# MARCAS
@@ -33,7 +34,7 @@ func ativar(cores:Array, marcas:Array, estilos:Array):
 		
 		# Procura cada marca no array de marcas que o usuário prefere
 		check_box.pressed = false
-		if marcas.find(nome_marca) != -1:
+		if preferencias.marcas.find(nome_marca) != -1:
 			check_box.pressed = true
 	
 	# ESTILOS
@@ -46,36 +47,80 @@ func ativar(cores:Array, marcas:Array, estilos:Array):
 		
 		# Procura cada estilo no array de estilos que o usuário prefere
 		check_box.pressed = false
-		if estilos.find(nome_estilo) != -1:
+		if preferencias.estilos.find(nome_estilo) != -1:
+			check_box.pressed = true
+	
+	# TIPOS
+	for tipo in get_node("Preferencias/VBoxContainer/HBoxContainer/Tipos").\
+																 get_children():
+		if tipo.name=="Label": # Ignora o titulo da sessao
+			continue
+		var nome_tipo = tipo.get_node("Label").text
+		var check_box = tipo.get_node("CheckBox")
+		
+		# Procura cada estilo no array de estilos que o usuário prefere
+		check_box.pressed = false
+		if preferencias.tipos.find(nome_tipo) != -1:
 			check_box.pressed = true
 
-
 func _on_BotaoEscolher_button_up():
-	var cores = []
-	var marcas = []
-	var estilos = []
+	var preferencias = espelho.usuarioLogado.preferencia
 	
 	# CORES
 	for cor in get_node("Preferencias/VBoxContainer/HBoxContainer/Cores").\
 																 get_children():
-		if cor.name!="Label": # Ignora o titulo da sessao
-			if cor.get_node("CheckBox").pressed:
-				cores.push_back(cor.get_node("Label").text)
+		if cor.name == "Label":
+			# Ignora o titulo da sessao
+			continue
+		
+		var text = cor.get_node("Label").text
+		if cor.get_node("CheckBox").pressed:
+			if !preferencias.cores.has(text): 
+				preferencias.cores.push_back(text)
+		else:
+			preferencias.cores.erase(text)
 	
 	# MARCAS
 	for marca in get_node("Preferencias/VBoxContainer/HBoxContainer/Marcas").\
 																 get_children():
-		if marca.name!="Label": # Ignora o titulo da sessao
-			if marca.get_node("CheckBox").pressed:
-				marcas.push_back(marca.get_node("Label").text)
+		if marca.name == "Label":
+			# Ignora o titulo da sessao
+			continue
+		
+		var text = marca.get_node("Label").text
+		if marca.get_node("CheckBox").pressed:
+			if !preferencias.marcas.has(text): 
+				preferencias.marcas.push_back(text)
+		else:
+			preferencias.marcas.erase(text)
 	
 	# ESTILOS
 	for estilo in get_node("Preferencias/VBoxContainer/HBoxContainer/Estilos").\
 																 get_children():
-		if estilo.name!="Label": # Ignora o titulo da sessao
-			if estilo.get_node("CheckBox").pressed:
-				estilos.push_back(estilo.get_node("Label").text)
+		if estilo.name == "Label":
+			# Ignora o titulo da sessao
+			continue
+		
+		var text = estilo.get_node("Label").text
+		if estilo.get_node("CheckBox").pressed:
+			if !preferencias.estilos.has(text): 
+				preferencias.estilos.push_back(text)
+		else:
+			preferencias.estilos.erase(text)
 	
-	espelho.usuarioLogado.set_cores(cores)
-	espelho.usuarioLogado.set_marcas(marcas)
-	espelho.usuarioLogado.set_estilos(estilos)
+	# TIPOS
+	for tipo in get_node("Preferencias/VBoxContainer/HBoxContainer/Tipos").\
+																 get_children():
+		if tipo.name == "Label":
+			# Ignora o titulo da sessao
+			continue
+		
+		var text = tipo.get_node("Label").text
+		if tipo.get_node("CheckBox").pressed:
+			if !preferencias.tipos.has(text): 
+				preferencias.tipos.push_back(text)
+		else:
+			preferencias.tipos.erase(text)
+	
+	get_node("AnimationPlayer").play("finalizar")
+	emit_signal("finalizarTela")

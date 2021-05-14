@@ -66,11 +66,13 @@ class Preferencia:
 	var cores: Array #Array de strings
 	var marcas: Array #Array de strings
 	var estilos: Array #Array de strings
+	var tipos: Array #Array de strings
 	
-	func _init(_cor: Array, _marca: Array, _estilos: Array):
+	func _init(_cor: Array, _marca: Array, _estilos: Array, _tipos: Array):
 		cores = _cor
 		marcas = _marca
 		estilos = _estilos
+		tipos = _tipos
 
 class Usuario:
 	var nome: String
@@ -175,7 +177,7 @@ class Espelho:
 		usuarioLogado = null
 	
 	func cadastrarUsuario(email: String, nome: String, senha: String):
-		var novoUsuario = Usuario.new(nome, email, senha, [], null)
+		var novoUsuario = Usuario.new(nome, email, senha, [], Classes.Preferencia([], [], [], []))
 		usuariosCadastrados.push_front(novoUsuario)
 	
 	func aoClienteSairDoProvador():

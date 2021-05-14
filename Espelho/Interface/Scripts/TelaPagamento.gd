@@ -1,21 +1,13 @@
 extends Control
 
-export(NodePath) var caminho_espelho
-onready var espelho = get_node(caminho_espelho)
-
-
-func _ready():
-	get_node("Resumo").show()
-	get_node("Pagar").hide()
-	get_node("PagamentoAprovado").hide()
-	get_node("PagamentoRecusado").hide()
-
+var espelho: Classes.Espelho = null
+signal finalizarTela
 
 # Ativar resumo da compra
 func ativar():
 	get_node("AnimationPlayer").play("iniciar")
-	adicionar_itens()
-
+	print("ativar")
+#	adicionar_itens()
 
 func adicionar_itens():
 	var item_padrao = get_node("Resumo/VBoxContainer/Itens/Item01")
@@ -56,19 +48,11 @@ func _on_BotaoFinalizar_button_up():
 
 # Realizar pagamento
 func _on_BotaoPagar_button_up():
-	var pagamento_aprovado = espelho.realizarPagamento()
-	if pagamento_aprovado:
-		get_node("AnimationPlayer").play("pagar_to_aprovado")
-	else:
-		get_node("AnimationPlayer").play("pagar_to_recusado")
-
+	var pagamento_aprovado = espelho.aoRealizarPagamento()
+	get_node("AnimationPlayer").play("pagar_to_aprovado")
 
 # Pagamento aprovado ou recusado, sair
 func _on_BotaoSair_button_up():
 	espelho.logout()
 	get_node("AnimationPlayer").play("finalizar")
-
-
-# Pagamento recusado, tentar novamente
-func _on_BotaoTentarNovamente_button_up():
-	get_node("AnimationPlayer").play("recusado_to_pagar")
+	emit_signal("finalizarTela")

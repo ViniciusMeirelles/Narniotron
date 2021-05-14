@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/Antonio-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Espelho/Interface/Scripts/TelaPreferencias.gd" type="Script" id=2]
@@ -19,6 +19,35 @@ font_data = ExtResource( 1 )
 [sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="Animation" id=4]
+resource_name = "finalizar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -68,14 +97,14 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Preferencias"]
-margin_left = 398.0
+margin_left = 350.0
 margin_top = 231.0
-margin_right = 681.0
+margin_right = 729.0
 margin_bottom = 488.0
 custom_constants/separation = 30
 
 [node name="Titulo" type="Label" parent="Preferencias/VBoxContainer"]
-margin_right = 283.0
+margin_right = 379.0
 margin_bottom = 53.0
 custom_fonts/font = SubResource( 1 )
 text = "Preferências"
@@ -83,7 +112,7 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer"]
 margin_top = 83.0
-margin_right = 283.0
+margin_right = 379.0
 margin_bottom = 199.0
 custom_constants/separation = 25
 
@@ -243,10 +272,10 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 81.0
+margin_right = 67.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "estilo_01"
+text = "Estilo1"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
 margin_top = 64.0
@@ -284,18 +313,85 @@ margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
 text = "estilo_03"
 
+[node name="Tipos" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
+margin_left = 308.0
+margin_right = 379.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_right = 71.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "Tipos"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 36.0
+margin_right = 71.0
+margin_bottom = 60.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 71.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "tipo_01"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 64.0
+margin_right = 71.0
+margin_bottom = 88.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer2"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer2"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 71.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "tipo_02"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 92.0
+margin_right = 71.0
+margin_bottom = 116.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer3"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer3"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 71.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "tipo_03"
+
 [node name="Botoes" type="CenterContainer" parent="Preferencias/VBoxContainer"]
 margin_top = 229.0
-margin_right = 283.0
+margin_right = 379.0
 margin_bottom = 257.0
 
 [node name="BotaoEscolher" type="Button" parent="Preferencias/VBoxContainer/Botoes"]
-margin_left = 106.0
-margin_right = 176.0
+margin_left = 154.0
+margin_right = 224.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 3 )
 text = " Escolher "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/iniciar = SubResource( 4 )
+anims/finalizar = SubResource( 4 )
+anims/iniciar = SubResource( 5 )
 [connection signal="button_up" from="Preferencias/VBoxContainer/Botoes/BotaoEscolher" to="." method="_on_BotaoEscolher_button_up"]
