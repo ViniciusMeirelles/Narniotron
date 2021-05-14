@@ -1,6 +1,7 @@
 extends Node2D
 
 var produto: Classes.Produto = null
+var cabide = null
 var holding = false
 
 func _process(delta):

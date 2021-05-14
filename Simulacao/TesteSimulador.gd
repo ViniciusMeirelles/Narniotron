@@ -4,18 +4,6 @@ var produtos = {
 	"ArgyleVestBlue": Classes.Produto.new("Argyle Vest Blue", 100.0, "res://Imagens/ArgyleVestBlue.png", ["estilo_01"], ["cor_01"], ["marca_01"], ["tipo_01"])
 }
 
-onready var node = {
-	"Login": {
-		"Buttons": {
-			"Logar": get_node("InterfaceUsuario/TelaLogin/Login/VBoxContainer/Botoes/ButtonLogar"),
-			"Registrar": get_node("InterfaceUsuario/TelaLogin/Login/VBoxContainer/Botoes/ButtonRegistrar"),
-		},
-		"Email": get_node("InterfaceUsuario/TelaLogin/Login/VBoxContainer/Email/email"),
-		"Senha": get_node("InterfaceUsuario/TelaLogin/Login/VBoxContainer/Senha/senha"),
-		"Erro": get_node("InterfaceUsuario/TelaLogin/Login/VBoxContainer/Erro"),
-	},
-}
-
 onready var TelaLogin = get_node("InterfaceUsuario/TelaLogin")
 onready var TelaPreferencias = get_node("InterfaceUsuario/TelaPreferencias")
 onready var TelaRodizio = get_node("InterfaceUsuario/TelaRodizio")

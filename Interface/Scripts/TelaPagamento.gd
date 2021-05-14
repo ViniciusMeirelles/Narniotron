@@ -25,7 +25,6 @@ func adicionar_itens():
 		var nodo_item
 		nodo_item = item_exemplo.duplicate()
 		nodo_item.visible = true
-		nodo_item.owner = item_exemplo.owner
 		item_exemplo.get_parent().add_child(nodo_item)
 		
 		var produto = item.produto
@@ -35,7 +34,6 @@ func adicionar_itens():
 	
 	# Cria valor total
 	var nodo_item = item_exemplo.duplicate()
-	nodo_item.owner = item_exemplo.owner
 	item_exemplo.get_parent().add_child(nodo_item)
 	nodo_item.visible = true
 	
