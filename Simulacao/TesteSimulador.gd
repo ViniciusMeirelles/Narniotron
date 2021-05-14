@@ -18,7 +18,11 @@ func _ready():
 		Classes.Usuario.new("a", "a", "a", [], Classes.Preferencia.new([], [], [], []))
 	]
 	var produtosEmEstoque = [
-		produtos.ArgyleVestBlue
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
 	]
 	
 	cabideira = Classes.Cabideira.new([], null)

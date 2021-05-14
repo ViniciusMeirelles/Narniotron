@@ -12,7 +12,7 @@ func _on_Area2D_body_entered(body):
 	if !cabideVazio:
 		return
 	
-	var produtoSolto = produto == null
+	var produtoSolto = body.cabide == null
 	if !produtoSolto:
 		return
 	
@@ -23,6 +23,9 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	if isDisabled:
+		return
+	
+	if produto != body:
 		return
 	
 	print("Removeu a roupa")
