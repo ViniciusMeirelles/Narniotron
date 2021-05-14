@@ -132,7 +132,7 @@ __meta__ = {
 }
 
 [node name="Roupas" type="Node2D" parent="Simulador"]
-position = Vector2( 604.117, 425.736 )
+position = Vector2( 604.117, 435.536 )
 
 [node name="Cabides" type="Node2D" parent="Simulador"]
 position = Vector2( 604.995, 382.811 )

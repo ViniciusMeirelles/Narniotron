@@ -23,6 +23,12 @@ func _ready():
 		produtos.ArgyleVestBlue,
 		produtos.ArgyleVestBlue,
 		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
+		produtos.ArgyleVestBlue,
 	]
 	
 	cabideira = Classes.Cabideira.new([], null)
