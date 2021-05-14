@@ -6,7 +6,6 @@ signal finalizarTela
 # Ativar resumo da compra
 func ativar():
 	get_node("AnimationPlayer").play("iniciar")
-	print("ativar")
 #	adicionar_itens()
 
 func adicionar_itens():
@@ -38,17 +37,20 @@ func adicionar_itens():
 	var valor_total = espelho.pedidoAtual.calculaValor()
 	nodo_item.get_node("Nome").text = "Total"
 	nodo_item.get_node("Valor").text = String(valor_total)
-	
-
 
 # Ir para tela de pagamento
+var cartaoInserido = false
 func _on_BotaoFinalizar_button_up():
 	get_node("AnimationPlayer").play("resumo_to_pagar")
+	yield(get_node("AnimationPlayer"), "animation_finished")
+	
+	while !cartaoInserido:
+		yield(get_tree(), "idle_frame")
+	
+	realizarPagamento()
 
-
-# Realizar pagamento
-func _on_BotaoPagar_button_up():
-	var pagamento_aprovado = espelho.aoRealizarPagamento()
+func realizarPagamento():
+	espelho.aoRealizarPagamento()
 	get_node("AnimationPlayer").play("pagar_to_aprovado")
 
 # Pagamento aprovado ou recusado, sair

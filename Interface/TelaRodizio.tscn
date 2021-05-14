@@ -4,7 +4,6 @@
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Interface/Scripts/TelaRodizio.gd" type="Script" id=3]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 use_mipmaps = true
@@ -169,7 +168,6 @@ __meta__ = {
 }
 
 [node name="Rodizio" type="CenterContainer" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -222,9 +220,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Devolver"]
 margin_left = 390.0
-margin_top = 253.0
+margin_top = 282.0
 margin_right = 689.0
-margin_bottom = 466.0
+margin_bottom = 437.0
 custom_constants/separation = 30
 
 [node name="Titulo" type="Label" parent="Devolver/VBoxContainer"]
@@ -244,21 +242,8 @@ Elas serão retiradas automaticamente do seu
 carrinho de compras."
 align = 1
 
-[node name="Botoes" type="CenterContainer" parent="Devolver/VBoxContainer"]
-margin_top = 185.0
-margin_right = 299.0
-margin_bottom = 213.0
-
-[node name="BotaoDevolver" type="Button" parent="Devolver/VBoxContainer/Botoes"]
-margin_left = 115.0
-margin_right = 184.0
-margin_bottom = 28.0
-custom_fonts/font = ExtResource( 2 )
-text = " Devolver "
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/finalizar = SubResource( 2 )
 anims/iniciar = SubResource( 3 )
 anims/rodizio_to_devolver = SubResource( 4 )
 [connection signal="button_up" from="Rodizio/VBoxContainer/Botoes/BotaoTerminar" to="." method="_on_BotaoTerminar_button_up"]
-[connection signal="button_up" from="Devolver/VBoxContainer/Botoes/BotaoDevolver" to="." method="_on_BotaoDevolver_button_up"]

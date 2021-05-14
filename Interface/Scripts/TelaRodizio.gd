@@ -8,14 +8,18 @@ func _ready():
 	get_node("Devolver").hide()
 
 func ativar():
+	aceitaDevolucaoDeRoupas = false
 	espelho.iniciarRodizio()
 	get_node("AnimationPlayer").play("iniciar")
 
+var aceitaDevolucaoDeRoupas = false
 func _on_BotaoTerminar_button_up():
-	get_node("AnimationPlayer").play("rodizio_to_devolver")
 	espelho.encerrarRodizio()
+	get_node("AnimationPlayer").play("rodizio_to_devolver")
+	aceitaDevolucaoDeRoupas = true
 
 # Vai para tela de pagamento
-func _on_BotaoDevolver_button_up():
+func devolverRoupas():
+	aceitaDevolucaoDeRoupas = false
 	get_node("AnimationPlayer").play("finalizar")
 	emit_signal("finalizarTela")

@@ -4,7 +4,6 @@
 [ext_resource path="res://Fonts/Antonio_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Interface/Scripts/TelaPagamento.gd" type="Script" id=3]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 use_mipmaps = true
@@ -285,6 +284,8 @@ __meta__ = {
 }
 
 [node name="Resumo" type="CenterContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -349,7 +350,6 @@ custom_fonts/font = ExtResource( 2 )
 text = " Finalizar "
 
 [node name="Pagar" type="CenterContainer" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -358,9 +358,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pagar"]
 margin_left = 413.0
-margin_top = 304.0
+margin_top = 333.0
 margin_right = 667.0
-margin_bottom = 415.0
+margin_bottom = 386.0
 custom_constants/separation = 30
 
 [node name="Titulo" type="Label" parent="Pagar/VBoxContainer"]
@@ -369,22 +369,6 @@ margin_bottom = 53.0
 custom_fonts/font = SubResource( 1 )
 text = "Insira seu cartão"
 align = 1
-
-[node name="Botoes" type="CenterContainer" parent="Pagar/VBoxContainer"]
-margin_top = 83.0
-margin_right = 254.0
-margin_bottom = 111.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Pagar/VBoxContainer/Botoes"]
-margin_left = 100.0
-margin_right = 153.0
-margin_bottom = 28.0
-
-[node name="BotaoPagar" type="Button" parent="Pagar/VBoxContainer/Botoes/HBoxContainer"]
-margin_right = 53.0
-margin_bottom = 28.0
-custom_fonts/font = ExtResource( 2 )
-text = " Pagar "
 
 [node name="PagamentoAprovado" type="CenterContainer" parent="."]
 visible = false
@@ -433,5 +417,4 @@ anims/pagar_to_recusado = SubResource( 5 )
 anims/recusado_to_pagar = SubResource( 6 )
 anims/resumo_to_pagar = SubResource( 7 )
 [connection signal="button_up" from="Resumo/VBoxContainer/Botoes/BotaoFinalizar" to="." method="_on_BotaoFinalizar_button_up"]
-[connection signal="button_up" from="Pagar/VBoxContainer/Botoes/HBoxContainer/BotaoPagar" to="." method="_on_BotaoPagar_button_up"]
 [connection signal="button_up" from="PagamentoAprovado/VBoxContainer/Botoes/HBoxContainer/BotaoSair" to="." method="_on_BotaoSair_button_up"]

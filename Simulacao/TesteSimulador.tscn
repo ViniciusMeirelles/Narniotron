@@ -1,17 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Simulacao/Cabide/CabideSimulado.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Simulacao/Roupa/RoupaSimulada.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Imagens/Avatar.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/ArgyleVestBlue.png" type="Texture" id=4]
+[ext_resource path="res://Imagens/Mall.png" type="Texture" id=5]
 [ext_resource path="res://Interface/InterfaceUsuario.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Simulacao/TesteSimulador.gd" type="Script" id=7]
+[ext_resource path="res://Imagens/closet.png" type="Texture" id=8]
+[ext_resource path="res://Simulacao/Simulador.gd" type="Script" id=9]
 
 [node name="Simulacao" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="Background" type="Node2D" parent="."]
-
-[node name="PanelContainer" type="PanelContainer" parent="Background"]
-margin_right = 542.0
+[node name="Background" type="PanelContainer" parent="."]
+margin_right = 540.0
 margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -23,9 +26,121 @@ margin_top = 179.952
 margin_right = 97.5439
 margin_bottom = 179.952
 
-[node name="Sistema" type="Node2D" parent="."]
+[node name="TelaLogin" parent="InterfaceUsuario" index="0"]
+margin_left = 28.4678
+margin_top = 7.49153
+margin_right = 28.4678
+margin_bottom = 7.49153
+
+[node name="TelaPreferencias" parent="InterfaceUsuario" index="1"]
+margin_left = -13.4848
+margin_top = 38.956
+margin_right = -13.4848
+margin_bottom = 38.956
+
+[node name="TelaRodizio" parent="InterfaceUsuario" index="2"]
+margin_left = 65.9255
+margin_top = 85.4035
+margin_right = 65.9255
+margin_bottom = 85.4035
+
+[node name="TelaPagamento" parent="InterfaceUsuario" index="3"]
+margin_left = 40.4543
+margin_top = 101.885
+margin_right = 40.4543
+margin_bottom = 101.885
+
+[node name="Simulador" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Avatar" type="Sprite" parent="Simulador"]
+position = Vector2( 819.102, 569.248 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+
+[node name="ArgyleVestBlue" type="Sprite" parent="Simulador"]
+position = Vector2( 813.114, 588.454 )
+scale = Vector2( 0.903995, 0.903995 )
+texture = ExtResource( 4 )
+
+[node name="Actions" type="VBoxContainer" parent="Simulador"]
+margin_left = 546.418
+margin_top = 8.4913
+margin_right = 675.418
+margin_bottom = 94.4913
+rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Simulador/Actions"]
+margin_right = 129.0
+margin_bottom = 14.0
+text = "Ações"
+align = 1
+
+[node name="EntrarSair" type="Button" parent="Simulador/Actions"]
+margin_top = 18.0
+margin_right = 129.0
+margin_bottom = 38.0
+text = "Entrar no provador"
+
+[node name="DevolverCabides" type="Button" parent="Simulador/Actions"]
+margin_top = 42.0
+margin_right = 129.0
+margin_bottom = 62.0
+disabled = true
+text = "Devolver cabides"
+
+[node name="InserirRemoverCartao" type="Button" parent="Simulador/Actions"]
+margin_top = 66.0
+margin_right = 129.0
+margin_bottom = 86.0
+disabled = true
+text = "Inserir cartão "
+
+[node name="Background" type="Node2D" parent="Simulador"]
+position = Vector2( 553.376, 363.888 )
+
+[node name="Closet" type="Sprite" parent="Simulador/Background"]
+visible = false
+z_index = -1
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 50, 50, 500, 350 )
+
+[node name="Mall" type="Sprite" parent="Simulador/Background"]
+scale = Vector2( 0.3, 0.3 )
+z_index = -1
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1666.67, 1166.67 )
+
+[node name="ScreenLocked" type="Node2D" parent="Simulador"]
+
+[node name="ColorRect" type="ColorRect" parent="Simulador/ScreenLocked"]
+margin_right = 540.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.619608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Simulador/ScreenLocked"]
+margin_right = 180.0
+margin_bottom = 240.0
+rect_scale = Vector2( 3, 3 )
+text = "Entre no provador"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Roupas" type="Node2D" parent="."]
+visible = false
 
 [node name="RoupaSimulada" parent="Roupas" instance=ExtResource( 2 )]
 position = Vector2( 683.888, 430.661 )
@@ -34,11 +149,15 @@ position = Vector2( 683.888, 430.661 )
 position = Vector2( 702.389, 265.845 )
 
 [node name="Cabides" type="Node2D" parent="."]
+visible = false
 
 [node name="CabideSimulado" parent="Cabides" instance=ExtResource( 1 )]
 position = Vector2( 854.408, 520.361 )
 
 [node name="CabideSimulado2" parent="Cabides" instance=ExtResource( 1 )]
 position = Vector2( 835.908, 180.639 )
+[connection signal="pressed" from="Simulador/Actions/EntrarSair" to="Simulador" method="_on_EntrarSair_pressed"]
+[connection signal="pressed" from="Simulador/Actions/DevolverCabides" to="Simulador" method="_on_DevolverCabides_pressed"]
+[connection signal="pressed" from="Simulador/Actions/InserirRemoverCartao" to="Simulador" method="_on_InserirRemoverCartao_pressed"]
 
 [editable path="InterfaceUsuario"]
