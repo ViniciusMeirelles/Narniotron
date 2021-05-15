@@ -31,6 +31,10 @@ func _ready():
 		produtos.ArgyleVestBlue,
 	]
 	
+	for i in range(usuariosCadastrados.size()):
+		var usuario: Classes.Usuario = usuariosCadastrados[i]
+		usuario.connect("notificarFurto", get_node("Simulador"), "aoReceberEmail")
+	
 	cabideira = Classes.Cabideira.new([], null)
 	
 	for i in range(produtosEmEstoque.size()):
@@ -43,6 +47,7 @@ func _ready():
 	cabideira.espelho = espelho
 	
 	camera = Classes.CameraInteligente.new(espelho)
+	get_node("Simulador").camera = camera
 	
 	TelaLogin.espelho = espelho
 	TelaPreferencias.espelho = espelho

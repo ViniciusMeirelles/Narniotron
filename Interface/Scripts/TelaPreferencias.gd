@@ -3,11 +3,11 @@ extends Control
 var espelho: Classes.Espelho = null
 signal finalizarTela
 
-# Esta funcao recebe um array das cores, das marcas e dos estilos que o usuario
-#prefere. Ela ativa as checkboxes de acordo com as preferencias recebidas
+var ativado = false
 func ativar():
 	var preferencias = espelho.usuarioLogado.preferencia
 	
+	ativado = true
 	get_node("AnimationPlayer").play("iniciar")
 	
 	# Estabelece preferencias
@@ -124,3 +124,9 @@ func _on_BotaoEscolher_button_up():
 	
 	get_node("AnimationPlayer").play("finalizar")
 	emit_signal("finalizarTela")
+	ativado = false
+
+func desativar():
+	if ativado:
+		ativado = false
+		get_node("AnimationPlayer").play("finalizar")

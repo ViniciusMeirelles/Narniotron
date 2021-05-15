@@ -8,9 +8,14 @@ onready var ScreenLocked = get_node("ScreenLocked")
 onready var DevolverCabidesButton = get_node("Actions/DevolverCabides")
 onready var InserirRemoverCartaoButton = get_node("Actions/InserirRemoverCartao")
 
+onready var TelaLogin = get_node("../InterfaceUsuario/TelaLogin")
 onready var TelaRodizio = get_node("../InterfaceUsuario/TelaRodizio")
+onready var TelaPreferencias = get_node("../InterfaceUsuario/TelaPreferencias")
 onready var TelaPagamento = get_node("../InterfaceUsuario/TelaPagamento")
 
+onready var EmailExample = get_node("EmailsDisplay/VBoxContainer/ScrollContainer/VBoxContainer/EmailExample")
+
+var camera: Classes.CameraInteligente = null
 var dentroDoProvador = false
 func _on_EntrarSair_pressed():
 	dentroDoProvador = !dentroDoProvador
@@ -22,6 +27,13 @@ func _on_EntrarSair_pressed():
 		ScreenLocked.visible = false
 		InserirRemoverCartaoButton.disabled = false
 	else:
+		camera.aoClienteSairDoProvador()
+		
+		TelaLogin.ativar()
+		TelaPreferencias.desativar()
+		TelaPagamento.desativar()
+		TelaRodizio.desativar()
+		
 		EntrarSairButton.text = "Entrar no provador"
 		ClosetBg.visible = false
 		MallBg.visible = true
@@ -54,6 +66,7 @@ func _on_DevolverCabides_pressed():
 	TelaRodizio.devolverRoupas()
 
 func _ready():
+	EmailExample.visible = false
 	set_process(true)
 
 func _process(delta):
@@ -78,3 +91,13 @@ func aoReceberCabide(cabide: Classes.Cabide):
 	get_node("Cabides").add_child(nCabide)
 	
 	totalSpawned += 1
+
+func aoReceberEmail(content: String):
+	var email = EmailExample.duplicate()
+	
+	email.visible = true
+	var time = OS.get_time()
+	email.get_node("Timestamp").text = "%02d:%02d" % [time.hour, time.minute]
+	email.get_node("Content/Label").text = content
+	
+	EmailExample.get_parent().add_child(email)

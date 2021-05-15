@@ -86,6 +86,7 @@ class Usuario:
 	var senha: String
 	var historicoDePedidos: Array #Array do tipo Pedido
 	var preferencia: Preferencia #nullable
+	signal notificarFurto(content)
 	
 	func _init(_nome: String, _email: String, _senha: String, _pedidos: Array, _preferencia: Preferencia):
 		nome = _nome
@@ -96,7 +97,9 @@ class Usuario:
 	
 	func notificarFurto():
 		print("Você saiu de nossa loja sem pagar!")
-		#TODO: Implementar integração com o simulador para simular e-mail sendo recebido
+		emit_signal("notificarFurto", \
+		"Você foi flagrado saindo do provador NarnioTron sem pagar.\n" + \
+		"Entre em contato com nossa administração para realizar a devolução ou pagamento dos produtos.")
 
 class Cabide:
 	var produto: Produto #nullable
@@ -169,9 +172,6 @@ class Espelho:
 		pedidoAtual.pedidoPago = true
 		usuarioLogado.historicoDePedidos.push_front(pedidoAtual)
 		pedidoAtual = Pedido.new([])
-		
-		print("Pagamento realizado!")
-		#TODO: Implementar integração com o simulador
 	
 	func tentativaDeLogin(email: String, senha: String) -> bool:
 		for i in range(usuariosCadastrados.size()):
@@ -192,16 +192,19 @@ class Espelho:
 		usuariosCadastrados.push_front(novoUsuario)
 	
 	func aoClienteSairDoProvador():
-		if usuarioLogado != null: return
-		if pedidoAtual.items.size() == 0: return
-		if pedidoAtual.pedidoPago: return
+		if usuarioLogado == null: return
+		
+		if pedidoAtual.items.size() == 0: 
+			logout()
+			return
+		
+		if pedidoAtual.pedidoPago:
+			logout()
+			return
 		
 		usuarioLogado.historicoDePedidos.push_front(pedidoAtual)
 		usuarioLogado.notificarFurto()
 		logout()
-		
-		print("Usuário saiu do provador sem pagar!")
-		#TODO: implementar integração com o simulador
 	
 	func pesquisarEEnviarRoupas():
 		var preferencia: Preferencia = usuarioLogado.preferencia
@@ -248,6 +251,9 @@ class Espelho:
 		rodizioAtivo = true
 		
 		while rodizioAtivo:
+			if usuarioLogado == null:
+				return
+			
 			var roupaEncontrada = pesquisarEEnviarRoupas()
 			if !roupaEncontrada: break
 			yield(Classes.tree.create_timer(5.0), "timeout")

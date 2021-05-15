@@ -91,6 +91,69 @@ margin_bottom = 86.0
 disabled = true
 text = "Inserir cartão "
 
+[node name="EmailsDisplay" type="PanelContainer" parent="Simulador"]
+margin_left = 754.0
+margin_top = 20.0
+margin_right = 1065.0
+margin_bottom = 334.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Simulador/EmailsDisplay"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 304.0
+margin_bottom = 307.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Simulador/EmailsDisplay/VBoxContainer"]
+margin_right = 297.0
+margin_bottom = 14.0
+text = "Emails:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Simulador/EmailsDisplay/VBoxContainer"]
+margin_top = 18.0
+margin_right = 297.0
+margin_bottom = 300.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Simulador/EmailsDisplay/VBoxContainer/ScrollContainer"]
+margin_right = 297.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+
+[node name="EmailExample" type="VBoxContainer" parent="Simulador/EmailsDisplay/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 297.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+
+[node name="Timestamp" type="Label" parent="Simulador/EmailsDisplay/VBoxContainer/ScrollContainer/VBoxContainer/EmailExample"]
+margin_right = 297.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "05:05:51"
+autowrap = true
+
+[node name="Content" type="PanelContainer" parent="Simulador/EmailsDisplay/VBoxContainer/ScrollContainer/VBoxContainer/EmailExample"]
+margin_top = 18.0
+margin_right = 297.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Simulador/EmailsDisplay/VBoxContainer/ScrollContainer/VBoxContainer/EmailExample/Content"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 290.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+text = "Content example"
+autowrap = true
+
 [node name="Background" type="Node2D" parent="Simulador"]
 position = Vector2( 553.376, 363.888 )
 

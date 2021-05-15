@@ -8,8 +8,11 @@ func _ready():
 	get_node("Login/VBoxContainer/Erro").hide()
 	get_node("Cadastro").hide()
 
+var ativado = false
 func ativar():
-	get_node("AnimationPlayer").play("iniciar")
+	if !ativado:
+		ativado = true
+		get_node("AnimationPlayer").play("iniciar")
 
 func _on_ButtonLogar_button_up():
 	var email = get_node("Login/VBoxContainer/Email/email").text
@@ -18,6 +21,7 @@ func _on_ButtonLogar_button_up():
 		get_node("Login/VBoxContainer/Erro").hide()
 		get_node("AnimationPlayer").play("login_fim")
 		emit_signal("finalizarTela")
+		ativado = false
 	else:
 		get_node("Login/VBoxContainer/Erro").show()
 

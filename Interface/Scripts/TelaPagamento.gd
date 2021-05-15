@@ -3,8 +3,9 @@ extends Control
 var espelho: Classes.Espelho = null
 signal finalizarTela
 
-# Ativar resumo da compra
+var ativado = false
 func ativar():
+	ativado = true
 	get_node("AnimationPlayer").play("iniciar")
 	adicionar_itens()
 
@@ -61,3 +62,9 @@ func _on_BotaoSair_button_up():
 	espelho.logout()
 	get_node("AnimationPlayer").play("finalizar")
 	emit_signal("finalizarTela")
+	ativado = false
+
+func desativar():
+	if ativado:
+		ativado = false
+		get_node("AnimationPlayer").play("finalizar")
