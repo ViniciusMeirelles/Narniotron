@@ -163,6 +163,7 @@ class Espelho:
 	var usuarioLogado: Usuario = null
 	var pedidoAtual: Pedido
 	var rodizioAtivo: bool = false
+	signal aoCadastrarUsuario(usuario)
 	
 	func _init(_cabideira: Cabideira, _usuariosCadastrados: Array):
 		cabideira = _cabideira
@@ -190,6 +191,7 @@ class Espelho:
 	func cadastrarUsuario(email: String, nome: String, senha: String):
 		var novoUsuario = Usuario.new(nome, email, senha, [], Preferencia.new([], [], [], []))
 		usuariosCadastrados.push_front(novoUsuario)
+		emit_signal("aoCadastrarUsuario", novoUsuario)
 	
 	func aoClienteSairDoProvador():
 		if usuarioLogado == null: return

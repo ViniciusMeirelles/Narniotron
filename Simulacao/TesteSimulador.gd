@@ -100,6 +100,7 @@ func _ready():
 		cabide.connect("aoEnviarCabide", get_node("Simulador"), "aoReceberCabide")
 	
 	espelho = Classes.Espelho.new(cabideira, usuariosCadastrados)
+	espelho.connect("aoCadastrarUsuario", self, "aoCadastrarUsuario")
 	cabideira.espelho = espelho
 	
 	camera = Classes.CameraInteligente.new(espelho)
@@ -114,3 +115,6 @@ func _ready():
 	TelaPreferencias.connect("finalizarTela", TelaRodizio, "ativar")
 	TelaRodizio.connect("finalizarTela", TelaPagamento, "ativar")
 	TelaPagamento.connect("finalizarTela", TelaLogin, "ativar")
+
+func aoCadastrarUsuario(novoUsuario: Classes.Usuario):
+	novoUsuario.connect("notificarFurto", get_node("Simulador"), "aoReceberEmail")
