@@ -97,14 +97,14 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Preferencias"]
-margin_left = 350.0
-margin_top = 231.0
-margin_right = 729.0
-margin_bottom = 488.0
+margin_left = 322.0
+margin_top = 133.0
+margin_right = 757.0
+margin_bottom = 586.0
 custom_constants/separation = 30
 
 [node name="Titulo" type="Label" parent="Preferencias/VBoxContainer"]
-margin_right = 379.0
+margin_right = 435.0
 margin_bottom = 53.0
 custom_fonts/font = SubResource( 1 )
 text = "Preferências"
@@ -112,16 +112,16 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer"]
 margin_top = 83.0
-margin_right = 379.0
-margin_bottom = 199.0
+margin_right = 435.0
+margin_bottom = 395.0
 custom_constants/separation = 25
 
 [node name="Cores" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
-margin_right = 67.0
-margin_bottom = 116.0
+margin_right = 84.0
+margin_bottom = 312.0
 
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
-margin_right = 67.0
+margin_right = 84.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 2 )
 text = "Cores"
@@ -129,7 +129,7 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
 margin_top = 36.0
-margin_right = 67.0
+margin_right = 84.0
 margin_bottom = 60.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer"]
@@ -140,14 +140,14 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 67.0
+margin_right = 76.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "cor_01"
+text = "Amarelo"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
 margin_top = 64.0
-margin_right = 67.0
+margin_right = 84.0
 margin_bottom = 88.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer2"]
@@ -158,14 +158,14 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer2"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 67.0
+margin_right = 52.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "cor_02"
+text = "Azul"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
 margin_top = 92.0
-margin_right = 67.0
+margin_right = 84.0
 margin_bottom = 116.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer3"]
@@ -176,18 +176,90 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer3"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 67.0
+margin_right = 69.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "cor_03"
+text = "Branco"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_top = 120.0
+margin_right = 84.0
+margin_bottom = 144.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer4"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer4"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 59.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Preto"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_top = 148.0
+margin_right = 84.0
+margin_bottom = 172.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer5"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer5"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 55.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Rosa"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_top = 176.0
+margin_right = 84.0
+margin_bottom = 200.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer6"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer6"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 61.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Verde"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Cores"]
+margin_top = 204.0
+margin_right = 84.0
+margin_bottom = 228.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer7"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Cores/HBoxContainer7"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 84.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Vermelho"
 
 [node name="Marcas" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
-margin_left = 92.0
-margin_right = 177.0
-margin_bottom = 116.0
+margin_left = 109.0
+margin_right = 205.0
+margin_bottom = 312.0
 
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
-margin_right = 85.0
+margin_right = 96.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 2 )
 text = "Marcas"
@@ -195,7 +267,7 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
 margin_top = 36.0
-margin_right = 85.0
+margin_right = 96.0
 margin_bottom = 60.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer"]
@@ -206,14 +278,14 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 85.0
+margin_right = 96.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "marca_01"
+text = "Able Sisters"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
 margin_top = 64.0
-margin_right = 85.0
+margin_right = 96.0
 margin_bottom = 88.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer2"]
@@ -224,14 +296,14 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer2"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 85.0
+margin_right = 59.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "marca_02"
+text = "Kicks"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
 margin_top = 92.0
-margin_right = 85.0
+margin_right = 96.0
 margin_bottom = 116.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer3"]
@@ -242,45 +314,63 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer3"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 85.0
+margin_right = 58.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "marca_03"
+text = "Label"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
+margin_top = 120.0
+margin_right = 96.0
+margin_bottom = 144.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer4"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer4"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 63.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Mabel"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas"]
+margin_top = 148.0
+margin_right = 96.0
+margin_bottom = 172.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer5"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Marcas/HBoxContainer5"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 57.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Nook"
 
 [node name="Estilos" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
-margin_left = 202.0
-margin_right = 283.0
-margin_bottom = 116.0
+margin_left = 230.0
+margin_right = 326.0
+margin_bottom = 312.0
 
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
-margin_right = 81.0
+margin_right = 96.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 2 )
 text = "Estilos"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
-margin_top = 36.0
-margin_right = 81.0
-margin_bottom = 60.0
-
-[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer"]
-margin_right = 24.0
-margin_bottom = 24.0
-custom_styles/focus = SubResource( 3 )
-
-[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer"]
-margin_left = 28.0
-margin_top = 1.0
-margin_right = 81.0
-margin_bottom = 23.0
-custom_fonts/font = ExtResource( 3 )
-text = "estilo_01"
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
-margin_top = 64.0
-margin_right = 81.0
-margin_bottom = 88.0
+margin_top = 36.0
+margin_right = 96.0
+margin_bottom = 60.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer2"]
 margin_right = 24.0
@@ -290,15 +380,15 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer2"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 81.0
+margin_right = 96.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "estilo_02"
+text = "Confortável"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
-margin_top = 92.0
-margin_right = 81.0
-margin_bottom = 116.0
+margin_top = 64.0
+margin_right = 96.0
+margin_bottom = 88.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer3"]
 margin_right = 24.0
@@ -308,18 +398,72 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer3"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 81.0
+margin_right = 79.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "estilo_03"
+text = "Dia a dia"
 
-[node name="Tipos" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
-margin_left = 308.0
-margin_right = 379.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
+margin_top = 92.0
+margin_right = 96.0
 margin_bottom = 116.0
 
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer4"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer4"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 77.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Esportes"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
+margin_top = 120.0
+margin_right = 96.0
+margin_bottom = 144.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer5"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer5"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 65.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Festas"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos"]
+margin_top = 148.0
+margin_right = 96.0
+margin_bottom = 172.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer7"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Estilos/HBoxContainer7"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 73.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Simples"
+
+[node name="Tipos" type="VBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer"]
+margin_left = 351.0
+margin_right = 435.0
+margin_bottom = 312.0
+
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
-margin_right = 71.0
+margin_right = 84.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 2 )
 text = "Tipos"
@@ -327,7 +471,7 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
 margin_top = 36.0
-margin_right = 71.0
+margin_right = 84.0
 margin_bottom = 60.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer"]
@@ -338,15 +482,33 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 71.0
+margin_right = 84.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "tipo_01"
+text = "Acessório"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 64.0
+margin_right = 84.0
+margin_bottom = 88.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer9"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer9"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 80.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Bermuda"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
-margin_top = 64.0
-margin_right = 71.0
-margin_bottom = 88.0
+margin_top = 92.0
+margin_right = 84.0
+margin_bottom = 116.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer2"]
 margin_right = 24.0
@@ -356,15 +518,33 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer2"]
 margin_left = 28.0
 margin_top = 1.0
-margin_right = 71.0
+margin_right = 67.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "tipo_02"
+text = "Blusão"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 120.0
+margin_right = 84.0
+margin_bottom = 144.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer4"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer4"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 59.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Bolsa"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
-margin_top = 92.0
-margin_right = 71.0
-margin_bottom = 116.0
+margin_top = 148.0
+margin_right = 84.0
+margin_bottom = 172.0
 
 [node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer3"]
 margin_right = 24.0
@@ -374,19 +554,109 @@ custom_styles/focus = SubResource( 3 )
 [node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer3"]
 margin_left = 28.0
 margin_top = 1.0
+margin_right = 60.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Calça"
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 176.0
+margin_right = 84.0
+margin_bottom = 200.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer10"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer10"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 74.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Calçado"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 204.0
+margin_right = 84.0
+margin_bottom = 228.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer5"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer5"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 82.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Camiseta"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 232.0
+margin_right = 84.0
+margin_bottom = 256.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer6"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer6"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 69.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Casaco"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 260.0
+margin_right = 84.0
+margin_bottom = 284.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer7"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer7"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 52.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Saia"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos"]
+margin_top = 288.0
+margin_right = 84.0
+margin_bottom = 312.0
+
+[node name="CheckBox" type="CheckBox" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer8"]
+margin_right = 24.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Preferencias/VBoxContainer/HBoxContainer/Tipos/HBoxContainer8"]
+margin_left = 28.0
+margin_top = 1.0
 margin_right = 71.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 3 )
-text = "tipo_03"
+text = "Vestido"
 
 [node name="Botoes" type="CenterContainer" parent="Preferencias/VBoxContainer"]
-margin_top = 229.0
-margin_right = 379.0
-margin_bottom = 257.0
+margin_top = 425.0
+margin_right = 435.0
+margin_bottom = 453.0
 
 [node name="BotaoEscolher" type="Button" parent="Preferencias/VBoxContainer/Botoes"]
-margin_left = 154.0
-margin_right = 224.0
+margin_left = 182.0
+margin_right = 252.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 3 )
 text = " Escolher "

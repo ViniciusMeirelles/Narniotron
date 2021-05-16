@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://Imagens/original.png" type="Texture" id=1]
+[ext_resource path="res://Imagens/avatar_body.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/Avatar.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/avatar_head.png" type="Texture" id=4]
 [ext_resource path="res://Imagens/Mall.png" type="Texture" id=5]
 [ext_resource path="res://Interface/InterfaceUsuario.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Simulacao/TesteSimulador.gd" type="Script" id=7]
@@ -13,6 +16,19 @@ script = ExtResource( 7 )
 [node name="Background" type="PanelContainer" parent="."]
 margin_right = 540.0
 margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="TextureRect" parent="."]
+modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
+anchor_bottom = 1.0
+margin_right = 520.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 540, 720 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,9 +67,21 @@ margin_bottom = 101.885
 script = ExtResource( 9 )
 
 [node name="Avatar" type="Sprite" parent="Simulador"]
+visible = false
 position = Vector2( 980.372, 567.988 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 3 )
+
+[node name="AvatarBody" type="Sprite" parent="Simulador"]
+position = Vector2( 973.676, 554.769 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="AvatarHead" type="Sprite" parent="Simulador"]
+position = Vector2( 973.676, 554.769 )
+scale = Vector2( 0.7, 0.7 )
+z_index = 1
+texture = ExtResource( 4 )
 
 [node name="Actions" type="VBoxContainer" parent="Simulador"]
 margin_left = 546.418

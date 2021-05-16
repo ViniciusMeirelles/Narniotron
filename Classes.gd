@@ -188,7 +188,7 @@ class Espelho:
 		usuarioLogado = null
 	
 	func cadastrarUsuario(email: String, nome: String, senha: String):
-		var novoUsuario = Usuario.new(nome, email, senha, [], Classes.Preferencia([], [], [], []))
+		var novoUsuario = Usuario.new(nome, email, senha, [], Preferencia.new([], [], [], []))
 		usuariosCadastrados.push_front(novoUsuario)
 	
 	func aoClienteSairDoProvador():
