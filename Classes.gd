@@ -215,37 +215,33 @@ class Espelho:
 		for i in range(produtos.size()):
 			var produto: Produto = produtos[i]
 			
-			var corAceita = false
 			for corPreferencial in preferencia.cores:
 				for corDoProduto in produto.cores:
 					if corPreferencial == corDoProduto:
-						corAceita = true
-			if !corAceita: continue
+						pedidoAtual.adicionarProduto(produto)
+						cabideira.solicitarProdutos([produto])
+						return true
 			
-			var tipoAceito = false
 			for tipoPreferencial in preferencia.tipos:
 				for tipoDoProduto in produto.tipos:
 					if tipoPreferencial == tipoDoProduto:
-						tipoAceito = true
-			if !tipoAceito: continue
+						pedidoAtual.adicionarProduto(produto)
+						cabideira.solicitarProdutos([produto])
+						return true
 			
-			var estiloAceito = false
 			for estiloPreferencial in preferencia.estilos:
 				for estiloDoProduto in produto.estilos:
 					if estiloPreferencial == estiloDoProduto:
-						estiloAceito = true
-			if !estiloAceito: continue
+						pedidoAtual.adicionarProduto(produto)
+						cabideira.solicitarProdutos([produto])
+						return true
 			
-			var marcaAceita = false
 			for marcaPreferencial in preferencia.marcas:
 				for marcaDoProduto in produto.marcas:
 					if marcaPreferencial == marcaDoProduto:
-						marcaAceita = true
-			if !marcaAceita: continue
-			
-			pedidoAtual.adicionarProduto(produto)
-			cabideira.solicitarProdutos([produto])
-			return true
+						pedidoAtual.adicionarProduto(produto)
+						cabideira.solicitarProdutos([produto])
+						return true
 		
 		return false
 	
